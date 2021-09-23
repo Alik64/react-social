@@ -13,7 +13,6 @@ export default function MyPosts() {
       </div>
       <div className={classes.posts}>
         <Post message=" Hi, how are you?" likesCount="23" />
-
         <Post message="It's my first post" likesCount="15" />
       </div>
     </div>
