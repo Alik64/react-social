@@ -1,6 +1,16 @@
-.item {
-  color: #fff;
+nav {
+  padding: 20px;
 }
-.item.active {
+.item {
+  margin-top: 5px;
+}
+.item:last-child {
+  margin-top: 20px;
+}
+.item a {
+  color: #fff;
+  text-decoration: none;
+}
+.item a.active {
   color: gold;
 }

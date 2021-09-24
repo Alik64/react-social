@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import Like from "./Post/Like/Like";
+
 export default function MyPosts() {
   return (
     <div>

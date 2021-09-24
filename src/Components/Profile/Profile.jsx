@@ -9,6 +9,7 @@ export default function Profile() {
           src="https://jooinn.com/images/beach-194.jpg"
           alt=""
           height="400px"
+          width="100%"
         />
       </div>
       <div>ava + description</div>
