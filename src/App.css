@@ -17,5 +17,10 @@
 
 .content {
   grid-area: c;
-  background-color: #f5fffa;
+  background-color: #c7a93d;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -6,7 +6,7 @@
 .dialogs_items {
   padding: 10px;
 }
-.dialogs_items .active {
+.active {
   color: gold;
 }
 .dialog {
