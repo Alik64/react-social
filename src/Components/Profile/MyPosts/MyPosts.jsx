@@ -1,17 +1,21 @@
 import React from "react";
-import classes from "./MyPosts.module.css";
+import style from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 export default function MyPosts() {
   return (
-    <div>
-      My posts
+    <div className={style.postBlock}>
+      <h3>My posts</h3>
       <div>
-        <textarea name="" id="" cols="30" rows="1"></textarea>
-        <button>Add post</button>
-        <button>Remove</button>
+        <div>
+          <textarea name="" id="" cols="30" rows="1"></textarea>
+        </div>
+        <div>
+          <button>Add post</button>
+          <button>Remove</button>
+        </div>
       </div>
-      <div className={classes.posts}>
+      <div className={style.posts}>
         <Post message=" Hi, how are you?" likesCount="23" />
         <Post message="It's my first post" likesCount="15" />
       </div>
