@@ -9,7 +9,7 @@ import News from "./Components/News/News";
 import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
 import DataGlobal from "./backend/DataGlobal";
-import DataGlobalOutside from "../backend/DataGlobalOutside";
+
 // let postData = [
 //   { id: 1, message: "Hi, how are you?", likesCount: "23" },
 //   { id: 2, message: "It's my first post", likesCount: "15" },
