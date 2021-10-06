@@ -9,7 +9,7 @@ export default function MyPosts() {
   ];
 
   let postElements = postData.map((post) => (
-    <Post message={post.message} likesCount={post.likesCount} />
+    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
 
   return (

@@ -34,11 +34,11 @@ export default function Dialogs(props) {
   ];
 
   let dialogsElements = dialogsData.map((dialog) => (
-    <DialogItem name={dialog.name} id={dialog.id} />
+    <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
   ));
 
   let messagesElements = messagesData.map((message) => (
-    <Message msg={message.msg} />
+    <Message msg={message.msg} key={message.id} />
   ));
   return (
     <div className={style.dialogs}>
