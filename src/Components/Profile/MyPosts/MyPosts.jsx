@@ -3,12 +3,12 @@ import style from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 export default function MyPosts(props) {
-  let postData = [
-    { id: 1, message: "Hi, how are you?", likesCount: "23" },
-    { id: 2, message: "It's my first post", likesCount: "15" },
-  ];
+  // let postData = [
+  //   { id: 1, message: "Hi, how are you?", likesCount: "23" },
+  //   { id: 2, message: "It's my first post", likesCount: "15" },
+  // ];
 
-  let postElements = postData.map((post) => (
+  let postElements = props.data.map((post) => (
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
 
