@@ -1,5 +1,4 @@
 import React from "react";
-
 import classes from "./Post.module.css";
 
 export default function Post(props) {
