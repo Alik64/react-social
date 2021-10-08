@@ -12,19 +12,19 @@ export default function Dialogs(props) {
   //   { id: 5, name: "Sophie" },
   //   { id: 6, name: "Leo" },
   // ];
-  let messagesData = [
-    { id: 1, msg: "Hi how are you?" },
-    { id: 2, msg: "I'm fine, thnx!" },
-    { id: 3, msg: "YO" },
-    { id: 4, msg: "What's up" },
-    { id: 5, msg: "Yo!" },
-  ];
+  // let messagesData = [
+  //   { id: 1, msg: "Hi how are you?" },
+  //   { id: 2, msg: "I'm fine, thnx!" },
+  //   { id: 3, msg: "YO" },
+  //   { id: 4, msg: "What's up" },
+  //   { id: 5, msg: "Yo!" },
+  // ];
 
-  let dialogsElements = props.dialogsData.map((dialog) => (
+  let dialogsElements = props.dialogs.map((dialog) => (
     <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
   ));
 
-  let messagesElements = messagesData.map((message) => (
+  let messagesElements = props.messages.map((message) => (
     <Message msg={message.msg} key={message.id} />
   ));
   return (

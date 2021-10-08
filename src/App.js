@@ -8,16 +8,14 @@ import Nav from "./Components/Nav/Nav.jsx";
 import News from "./Components/News/News";
 import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
-import DataGlobal from "./backend/DataGlobal";
 
 // let postData = [
 //   { id: 1, message: "Hi, how are you?", likesCount: "23" },
 //   { id: 2, message: "It's my first post", likesCount: "15" },
 // ];
 
-function App() {
-  console.log(DataGlobal);
-  console.log(DataGlobal);
+function App(props) {
+  console.log(props.data);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -26,15 +24,12 @@ function App() {
         <div className="content">
           <Route
             path="/profile"
-            render={() => <Profile postData={DataGlobal.postData} />}
+            render={() => <Profile posts={props.posts} />}
           />
           <Route
             path="/dialogs"
             render={() => (
-              <Dialogs
-                dialogsData={DataGlobal.dialogsData}
-                messagesData={DataGlobal.messagesData}
-              />
+              <Dialogs dialogs={props.dialogs} messages={props.messages} />
             )}
           />
           <Route path="/news" component={News} />
