@@ -9,11 +9,6 @@ import News from "./Components/News/News";
 import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
 
-// let postData = [
-//   { id: 1, message: "Hi, how are you?", likesCount: "23" },
-//   { id: 2, message: "It's my first post", likesCount: "15" },
-// ];
-
 function App(props) {
   console.log(props.data);
   return (
