@@ -1,3 +1,10 @@
+.nav_friends {
+  margin-top: 50px;
+}
+.nav_friends h2 {
+  color: #fff;
+}
+
 .avatar {
   width: 50px;
   border-radius: 50%;
