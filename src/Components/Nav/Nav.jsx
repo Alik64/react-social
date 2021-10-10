@@ -30,6 +30,8 @@ export default function Nav() {
           Settings
         </NavLink>
       </div>
+
+      <section className="nav_friends"></section>
     </nav>
   );
 }
