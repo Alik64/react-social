@@ -10,12 +10,11 @@ import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
 
 function App(props) {
-  console.log(props.data);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Nav />
+        <Nav state={props.state.nav} />
         <div className="content">
           <Route
             path="/profile"

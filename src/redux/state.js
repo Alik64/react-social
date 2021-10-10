@@ -22,5 +22,13 @@ let state = {
       { id: 5, msg: "Yo!" },
     ],
   },
+  nav: {
+    friends: [
+      { id: 1, name: "Paul", sexe: "M" },
+      { id: 2, name: "Marie", sexe: "F" },
+      { id: 3, name: "Bruno", sexe: "M" },
+      { id: 4, name: "David", sexe: "M" },
+    ],
+  },
 };
 export default state;

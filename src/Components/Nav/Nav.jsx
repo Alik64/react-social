@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
+import Friends from "./Friends/Friends";
 console.log(style);
-export default function Nav() {
+export default function Nav(props) {
   return (
     <nav className="nav">
       <div className={style.item}>
@@ -25,13 +26,13 @@ export default function Nav() {
           Music
         </NavLink>
       </div>
-      <div className={style.item}>
+      <div className={`${style.item} ${style.settings}`}>
         <NavLink to="/settings" activeClassName={style.active}>
           Settings
         </NavLink>
       </div>
 
-      <section className="nav_friends"></section>
+      <Friends friends={props.state.friends} />
     </nav>
   );
 }

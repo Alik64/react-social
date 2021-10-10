@@ -4,8 +4,8 @@ nav {
 .item {
   margin-top: 5px;
 }
-.item:last-child {
-  margin-top: 20px;
+.settings {
+  margin-top: 30px;
 }
 .item a {
   color: #fff;
