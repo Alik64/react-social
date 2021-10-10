@@ -7,12 +7,12 @@ let state = {
   },
   dialogsPage: {
     dialogs: [
-      { id: 1, name: "Paul" },
-      { id: 2, name: "Marie" },
-      { id: 3, name: "Bruno" },
-      { id: 4, name: "David" },
-      { id: 5, name: "Sophie" },
-      { id: 6, name: "Leo" },
+      { id: 1, name: "Paul", sexe: "M" },
+      { id: 2, name: "Marie", sexe: "F" },
+      { id: 3, name: "Bruno", sexe: "M" },
+      { id: 4, name: "David", sexe: "M" },
+      { id: 5, name: "Sophie", sexe: "F" },
+      { id: 6, name: "Leo", sexe: "M" },
     ],
     messages: [
       { id: 1, msg: "Hi how are you?" },

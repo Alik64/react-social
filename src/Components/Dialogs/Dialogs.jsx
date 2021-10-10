@@ -5,7 +5,12 @@ import DialogItem from "./DialogItem/DialogItem";
 
 export default function Dialogs(props) {
   let dialogsElements = props.state.dialogs.map((dialog) => (
-    <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
+    <DialogItem
+      name={dialog.name}
+      id={dialog.id}
+      key={dialog.id}
+      sexe={dialog.sexe}
+    />
   ));
 
   let messagesElements = props.state.messages.map((message) => (
