@@ -37,8 +37,14 @@ let state = {
   },
 };
 
-export let addPost = (postMessage) => {
-  let newPost = { id: 5, message: postMessage, likesCount: 0 };
+window.state = state;
+
+export let addPost = () => {
+  let newPost = {
+    id: 5,
+    message: state.profilePage.newPostText,
+    likesCount: 0,
+  };
   state.profilePage.posts.unshift(newPost);
   rerenderEntireTree(state);
 };
