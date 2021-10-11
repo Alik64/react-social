@@ -12,7 +12,7 @@ export default function MyPosts(props) {
   const addPost = () => {
     let text = newPostElement.current.value;
     props.addPost(text);
-    newPostElement.current.value = "";
+    props.updateNewPostChange("");
   };
   const onPostChange = () => {
     let text = newPostElement.current.value;
