@@ -16,6 +16,7 @@ export default function Dialogs(props) {
   let messagesElements = props.state.messages.map((message) => (
     <Message msg={message.msg} key={message.id} />
   ));
+
   return (
     <div className={style.dialogs}>
       <div className={style.dialogs_items}>{dialogsElements}</div>
