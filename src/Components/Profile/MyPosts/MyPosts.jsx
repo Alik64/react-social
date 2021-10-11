@@ -7,6 +7,10 @@ export default function MyPosts(props) {
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
 
+  const addPost = () => {
+    alert("J'ajoute le post");
+  };
+
   return (
     <div className={style.postBlock}>
       <h3>My posts</h3>
@@ -15,8 +19,7 @@ export default function MyPosts(props) {
           <textarea name="" id="" cols="30" rows="1"></textarea>
         </div>
         <div>
-          <button>Add post</button>
-          <button>Remove</button>
+          <button onClick={addPost}>Add post</button>
         </div>
       </div>
       <div className={style.posts}>{postElements}</div>
