@@ -8,6 +8,7 @@ let state = {
       { id: 3, message: "Bla bla bla", likesCount: 22 },
       { id: 4, message: "DA dA Da", likesCount: 11 },
     ],
+    newPostText: "Redux copy",
   },
   dialogsPage: {
     dialogs: [
