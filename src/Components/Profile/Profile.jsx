@@ -11,6 +11,7 @@ export default function Profile(props) {
         posts={props.profilePage.posts}
         newPostText={props.profilePage.newPostText}
         addPost={props.addPost}
+        updateNewPostChange={props.updateNewPostChange}
       />
     </div>
   );
