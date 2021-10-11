@@ -46,6 +46,7 @@ export let addPost = () => {
     likesCount: 0,
   };
   state.profilePage.posts.unshift(newPost);
+  state.profilePage.newPostText = "";
   rerenderEntireTree(state);
 };
 

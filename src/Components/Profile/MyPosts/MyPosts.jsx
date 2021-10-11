@@ -11,7 +11,6 @@ export default function MyPosts(props) {
 
   const addPost = () => {
     props.addPost();
-    props.updateNewPostChange("");
   };
   const onPostChange = () => {
     let text = newPostElement.current.value;
