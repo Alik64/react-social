@@ -7,8 +7,11 @@ export default function MyPosts(props) {
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
 
+  const newPostElement = React.createRef();
+
   const addPost = () => {
-    alert("J'ajoute le post");
+    let text = newPostElement.current.value;
+    alert(text);
   };
 
   return (
@@ -16,7 +19,7 @@ export default function MyPosts(props) {
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea name="" id="" cols="30" rows="1"></textarea>
+          <textarea ref={newPostElement}></textarea>
         </div>
         <div>
           <button onClick={addPost}>Add post</button>
