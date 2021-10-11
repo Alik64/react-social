@@ -11,7 +11,7 @@ export default function MyPosts(props) {
 
   const addPost = () => {
     let text = newPostElement.current.value;
-    alert(text);
+    props.addPost(text);
   };
 
   return (
@@ -22,7 +22,7 @@ export default function MyPosts(props) {
           <textarea ref={newPostElement}></textarea>
         </div>
         <div>
-          <button onClick={props.addPost}>Add post</button>
+          <button onClick={addPost}>Add post</button>
         </div>
       </div>
       <div className={style.posts}>{postElements}</div>
