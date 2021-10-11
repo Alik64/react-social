@@ -26,6 +26,7 @@ let state = {
       { id: 4, msg: "What's up" },
       { id: 5, msg: "Yo!" },
     ],
+    newMessageText: "Enter your message",
   },
   nav: {
     friends: [
@@ -52,6 +53,18 @@ export let addPost = () => {
 
 export let updateNewPostChange = (newText) => {
   state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
+
+export let addMessage = () => {
+  let newMessage = { id: 6, msg: state.dialogsPage.newMessageText };
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 };
 
