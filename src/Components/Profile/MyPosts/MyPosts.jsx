@@ -22,7 +22,7 @@ export default function MyPosts(props) {
           <textarea ref={newPostElement}></textarea>
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={props.addPost}>Add post</button>
         </div>
       </div>
       <div className={style.posts}>{postElements}</div>

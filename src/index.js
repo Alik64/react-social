@@ -6,10 +6,10 @@ import state from "./redux/state";
 import { addPost } from "./redux/state";
 import { BrowserRouter } from "react-router-dom";
 
-addPost("yo mf");
+// addPost("yo mf");
 ReactDOM.render(
   <BrowserRouter>
-    <App state={state} />
+    <App state={state} addPost={addPost} />
   </BrowserRouter>,
   document.getElementById("root")
 );
