@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {
+  console.log("rerender from state.js");
+};
 
 let state = {
   profilePage: {
