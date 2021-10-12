@@ -42,7 +42,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 5,
     message: state.profilePage.newPostText,
@@ -53,21 +53,24 @@ export let addPost = () => {
   rerenderEntireTree(state);
 };
 
-export let updateNewPostChange = (newText) => {
+export const updateNewPostChange = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 
-export let addMessage = () => {
+export const addMessage = () => {
   let newMessage = { id: 6, msg: state.dialogsPage.newMessageText };
   state.dialogsPage.messages.push(newMessage);
   state.dialogsPage.newMessageText = "";
   rerenderEntireTree(state);
 };
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
   state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 };
 
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+};
 export default state;
