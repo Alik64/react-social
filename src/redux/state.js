@@ -67,18 +67,15 @@ let store = {
     } else if (action.type === "UPDATE-NEW-POST") {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
+    } else if (action.type === "NEW-MESSAGE") {
+      let newMessage = { id: 6, msg: this._state.dialogsPage.newMessageText };
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newMessageText = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      this._state.dialogsPage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
     }
-  },
-
-  addMessage() {
-    let newMessage = { id: 6, msg: this._state.dialogsPage.newMessageText };
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSubscriber(this._state);
   },
 };
 
