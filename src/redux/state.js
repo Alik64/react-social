@@ -70,20 +70,6 @@ let store = {
     }
   },
 
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    };
-    this._state.profilePage.posts.unshift(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewPostChange(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
   addMessage() {
     let newMessage = { id: 6, msg: this._state.dialogsPage.newMessageText };
     this._state.dialogsPage.messages.push(newMessage);
