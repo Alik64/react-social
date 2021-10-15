@@ -10,11 +10,11 @@ export default function MyPosts(props) {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    props.addPost();
+    props.dispatch({ type: "ADD-POST" });
   };
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostChange(text);
+    props.dispatch({ type: "UPDATE-NEW-POST", newText: text });
   };
 
   return (
