@@ -1,4 +1,5 @@
 let store = {
+  // PRIVATE
   _state: {
     profilePage: {
       posts: [
@@ -36,13 +37,16 @@ let store = {
       ],
     },
   },
+  _callSubscriber() {
+    console.log("rerender from state.js");
+  },
+
+  // PUBLIC
+
   getState() {
     return this._state;
   },
 
-  _callSubscriber() {
-    console.log("rerender from state.js");
-  },
   addPost() {
     let newPost = {
       id: 5,
