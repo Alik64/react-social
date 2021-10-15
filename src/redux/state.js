@@ -43,8 +43,31 @@ let store = {
 
   // PUBLIC
 
+  // Les Methodes qui sont lié au STATE
   getState() {
     return this._state;
+  },
+
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+
+  // Dispatch
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0,
+      };
+      this._state.profilePage.posts.unshift(newPost);
+      this._state.profilePage.newPostText = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-POST") {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
   },
 
   addPost() {
@@ -70,9 +93,6 @@ let store = {
   updateNewMessageText(newText) {
     this._state.dialogsPage.newMessageText = newText;
     this._callSubscriber(this._state);
-  },
-  subscribe(observer) {
-    this._callSubscriber = observer;
   },
 };
 
