@@ -36,38 +36,42 @@ let store = {
       ],
     },
   },
-  rerenderEntireTree() {
+  getState() {
+    return this._state;
+  },
+
+  _callSubscriber() {
     console.log("rerender from state.js");
   },
   addPost() {
     let newPost = {
       id: 5,
-      message: state.profilePage.newPostText,
+      message: this._state.profilePage.newPostText,
       likesCount: 0,
     };
-    state.profilePage.posts.unshift(newPost);
-    state.profilePage.newPostText = "";
-    rerenderEntireTree(state);
+    this._state.profilePage.posts.unshift(newPost);
+    this._state.profilePage.newPostText = "";
+    this._callSubscriber(this._state);
   },
   updateNewPostChange(newText) {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
+    this._state.profilePage.newPostText = newText;
+    this._callSubscriber(this._state);
   },
   addMessage() {
-    let newMessage = { id: 6, msg: state.dialogsPage.newMessageText };
-    state.dialogsPage.messages.push(newMessage);
-    state.dialogsPage.newMessageText = "";
-    rerenderEntireTree(state);
+    let newMessage = { id: 6, msg: this._state.dialogsPage.newMessageText };
+    this._state.dialogsPage.messages.push(newMessage);
+    this._state.dialogsPage.newMessageText = "";
+    this._callSubscriber(this._state);
   },
   updateNewMessageText(newText) {
-    state.dialogsPage.newMessageText = newText;
-    rerenderEntireTree(state);
+    this._state.dialogsPage.newMessageText = newText;
+    this._callSubscriber(this._state);
   },
   subscribe(observer) {
-    rerenderEntireTree = observer;
+    this._callSubscriber = observer;
   },
 };
 
 window.store = store;
 
-export default state;
+export default store;
