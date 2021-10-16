@@ -21,15 +21,13 @@ export default function Dialogs(props) {
     <Message msg={message.msg} key={message.id} />
   ));
 
-  const newMessageElement = React.createRef();
-
   const addMessage = () => {
     // props.addMessage();
     props.dispatch(newMessageActionCreator());
   };
 
-  const onMessageChange = () => {
-    let text = newMessageElement.current.value;
+  const onMessageChange = (e) => {
+    let text = e.target.value;
 
     // props.updateNewMessageText(text);
     //let action = { type: "UPDATE-NEW-MESSAGE-TEXT", newText: text };
@@ -41,12 +39,11 @@ export default function Dialogs(props) {
       <div className={style.dialogs_items}>{dialogsElements}</div>
 
       <div className={style.messages}>
-        {messagesElements}
+        <div>{messagesElements}</div>
         <div className={style.newMessage}>
           <div>
             <textarea
               onChange={onMessageChange}
-              ref={newMessageElement}
               value={props.dialogsPage.newMessageText}
             ></textarea>
           </div>

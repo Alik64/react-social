@@ -73,9 +73,9 @@ let store = {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
     } else if (action.type === NEW_MESSAGE) {
-      let newMessage = { id: 6, msg: this._state.dialogsPage.newMessageText };
-      this._state.dialogsPage.messages.push(newMessage);
+      let body = this._state.dialogsPage.newMessageText;
       this._state.dialogsPage.newMessageText = "";
+      this._state.dialogsPage.messages.push({ id: 6, msg: body });
       this._callSubscriber(this._state);
     } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.dialogsPage.newMessageText = action.newText;
