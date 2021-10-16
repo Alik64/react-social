@@ -1,3 +1,5 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST = "UPDATE-NEW-POST";
 let store = {
   // PRIVATE
   _state: {
@@ -55,7 +57,7 @@ let store = {
   // Dispatch
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
         message: this._state.profilePage.newPostText,
@@ -64,7 +66,7 @@ let store = {
       this._state.profilePage.posts.unshift(newPost);
       this._state.profilePage.newPostText = "";
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-POST") {
+    } else if (action.type === UPDATE_NEW_POST) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
     } else if (action.type === "NEW-MESSAGE") {
@@ -80,11 +82,11 @@ let store = {
 };
 
 export const addPostActionCreator = () => {
-  return { type: "ADD-POST" };
+  return { type: ADD_POST };
 };
 export const updateNewPostActionCreator = (text) => {
   return {
-    type: "UPDATE-NEW-POST",
+    type: UPDATE_NEW_POST,
     newText: text,
   };
 };
