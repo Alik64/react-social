@@ -2,11 +2,6 @@ import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
 import sidebarReducer from "./sidebarReducer";
 
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST = "UPDATE-NEW-POST";
-const NEW_MESSAGE = "NEW-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-
 let store = {
   // PRIVATE
   _state: {
@@ -71,21 +66,6 @@ let store = {
     this._callSubscriber(this._state);
   },
 };
-// ACTION CREATORS
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-
-export const updateNewPostActionCreator = (text) => ({
-  type: UPDATE_NEW_POST,
-  newText: text,
-});
-
-export const newMessageActionCreator = () => ({ type: NEW_MESSAGE });
-
-export const updateNewMessageTextActionCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newText: text,
-});
 
 window.store = store;
 

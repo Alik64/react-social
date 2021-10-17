@@ -5,7 +5,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import {
   newMessageActionCreator,
   updateNewMessageTextActionCreator,
-} from "../../redux/state";
+} from "../../redux/dialogsReducer";
 
 export default function Dialogs(props) {
   let state = props.store.getState().dialogsPage;
