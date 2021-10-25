@@ -8,7 +8,7 @@ import {
 } from "../../redux/dialogsReducer";
 
 export default function Dialogs(props) {
-  let state = props.store.getState().dialogsPage;
+  let state = props.dialogsPage;
 
   let dialogsElements = state.dialogs.map((dialog) => (
     <DialogItem
@@ -24,12 +24,12 @@ export default function Dialogs(props) {
   ));
 
   const addMessage = () => {
-    props.store.dispatch(newMessageActionCreator());
+    props.sendMessage();
   };
 
   const onMessageChange = (e) => {
     let text = e.target.value;
-    props.store.dispatch(updateNewMessageTextActionCreator(text));
+    props.updateNewMessageText(text);
   };
 
   return (
