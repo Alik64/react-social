@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import Dialogs from "./Components/Dialogs/Dialogs";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import Header from "./Components/Header/Header.jsx";
 import Music from "./Components/Music/Music";
@@ -9,7 +8,7 @@ import Nav from "./Components/Nav/Nav.jsx";
 import News from "./Components/News/News";
 import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
-import StoreContext from "./StoreContext";
+
 function App(props) {
   return (
     <div className="app-wrapper">

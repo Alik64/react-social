@@ -10,6 +10,8 @@ export default function DialogsContainer() {
   return (
     <StoreContext.Consumer>
       {(store) => {
+        let state = store.getState().dialogsPage;
+
         const onSendMessageClick = () => {
           store.dispatch(newMessageActionCreator());
         };
@@ -21,7 +23,7 @@ export default function DialogsContainer() {
           <Dialogs
             updateNewMessageText={onMessageChange}
             sendMessage={onSendMessageClick}
-            dialogsPage={store.getState().dialogsPage}
+            dialogsPage={state}
           />
         );
       }}
