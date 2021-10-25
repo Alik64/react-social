@@ -13,14 +13,12 @@ export default function MyPosts(props) {
 
   const newPostElement = React.createRef();
 
-  const addPost = () => {
-    // props.addPost();
-    //props.dispatch({ type: "ADD-POST" });
-    props.dispatch(addPostActionCreator());
+  const onAddPost = () => {
+    props.addPost();
   };
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch(updateNewPostActionCreator(text));
+    props.updateNewPostText(text);
   };
 
   return (
@@ -35,7 +33,7 @@ export default function MyPosts(props) {
           />
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={onAddPost}>Add post</button>
         </div>
       </div>
       <div className={style.posts}>{postElements}</div>
