@@ -4,7 +4,8 @@ import "./App.css";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import Header from "./Components/Header/Header.jsx";
 import Music from "./Components/Music/Music";
-import Nav from "./Components/Nav/Nav.jsx";
+
+import NavContainer from "./Components/Nav/NavContainer";
 import News from "./Components/News/News";
 import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
@@ -13,7 +14,7 @@ function App(props) {
   return (
     <div className="app-wrapper">
       <Header />
-      <Nav />;
+      <NavContainer />;
       <div className="content">
         <Route path="/profile" render={() => <Profile />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />

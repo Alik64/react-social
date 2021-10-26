@@ -4,7 +4,6 @@ import {
   newMessageActionCreator,
   updateNewMessageTextActionCreator,
 } from "../../redux/dialogsReducer";
-import StoreContext from "../../StoreContext";
 import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
@@ -23,5 +22,5 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 export default DialogsContainer;
