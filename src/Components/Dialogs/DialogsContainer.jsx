@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   newMessageActionCreator,
   updateNewMessageTextActionCreator,
@@ -30,3 +31,25 @@ export default function DialogsContainer() {
     </StoreContext.Consumer>
   );
 }
+
+let mapStateToProps = (state) =>{
+  return {
+    dialogsPage:state.dialogsPage
+
+  }
+}
+let mapDispatchToProps=(dispatch)=>{
+  return {
+    updateNewMessageText: (text)=>{
+      dispatch(updateNewMessageTextActionCreator(text))
+    },
+    sendMessage: ()=>{
+      dispatch(newMessageActionCreator())
+    }
+
+  }
+}
+
+
+let superDialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs);
+export default superDialogsContainer
