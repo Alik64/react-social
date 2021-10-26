@@ -1,5 +1,6 @@
 const NEW_MESSAGE = "NEW-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
 let initialState = {
   dialogs: [
     { id: 1, name: "Paul", sexe: "M" },
@@ -18,18 +19,22 @@ let initialState = {
   ],
   newMessageText: "Enter your message",
 };
+
 const dialogsReducer = (state = initialState, action) => {
+  let newState = {
+    ...state,
+  };
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newText;
-      return state;
+      newState.newMessageText = action.newText;
+      return newState;
     case NEW_MESSAGE:
-      let body = state.newMessageText;
-      state.newMessageText = "";
-      state.messages.push({ id: 6, msg: body });
-      return state;
+      let body = newState.newMessageText;
+      newState.newMessageText = "";
+      newState.messages.push({ id: 6, msg: body });
+      return newState;
     default:
-      return state;
+      return newState;
   }
 };
 
