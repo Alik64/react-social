@@ -7,49 +7,21 @@ import {
 import StoreContext from "../../StoreContext";
 import Dialogs from "./Dialogs";
 
-export default function DialogsContainer() {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState().dialogsPage;
-
-        const onSendMessageClick = () => {
-          store.dispatch(newMessageActionCreator());
-        };
-
-        const onMessageChange = (text) => {
-          store.dispatch(updateNewMessageTextActionCreator(text));
-        };
-        return (
-          <Dialogs
-            updateNewMessageText={onMessageChange}
-            sendMessage={onSendMessageClick}
-            dialogsPage={state}
-          />
-        );
-      }}
-    </StoreContext.Consumer>
-  );
-}
-
-let mapStateToProps = (state) =>{
+let mapStateToProps = (state) => {
   return {
-    dialogsPage:state.dialogsPage
-
-  }
-}
-let mapDispatchToProps=(dispatch)=>{
+    dialogsPage: state.dialogsPage,
+  };
+};
+let mapDispatchToProps = (dispatch) => {
   return {
-    updateNewMessageText: (text)=>{
-      dispatch(updateNewMessageTextActionCreator(text))
+    updateNewMessageText: (text) => {
+      dispatch(updateNewMessageTextActionCreator(text));
     },
-    sendMessage: ()=>{
-      dispatch(newMessageActionCreator())
-    }
+    sendMessage: () => {
+      dispatch(newMessageActionCreator());
+    },
+  };
+};
 
-  }
-}
-
-
-let superDialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs);
-export default superDialogsContainer
+let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+export default DialogsContainer;
