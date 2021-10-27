@@ -43,6 +43,7 @@ export default function Dialogs(props) {
             <textarea
               onChange={onMessageChange}
               value={state.newMessageText}
+              placeholder="Enter your message"
             ></textarea>
           </div>
           <div>

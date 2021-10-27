@@ -8,7 +8,7 @@ let initialState = {
     { id: 3, message: "Bla bla bla", likesCount: 22 },
     { id: 4, message: "DA dA Da", likesCount: 11 },
   ],
-  newPostText: "Redux copy",
+  newPostText: "New post",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -16,21 +16,13 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       let newPost = {
         id: 5,
-        message: state.newPostText, // this._state.profilePage.newPostText,
+        message: state.newPostText,
         likesCount: 0,
       };
-      let stateCopy = { ...state };
-      stateCopy.posts = [...state.posts];
-      stateCopy.posts.unshift(newPost);
-      stateCopy.newPostText = "";
-      return stateCopy;
+      return { ...state, posts: [newPost, ...state.posts], newPostText: "" };
     }
     case UPDATE_NEW_POST: {
-      let stateCopy = { ...state };
-      stateCopy.posts = [...state.posts];
-
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
+      return { ...state, newPostText: action.newText };
     }
     default:
       return state;
