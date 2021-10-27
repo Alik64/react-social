@@ -9,6 +9,7 @@ import NavContainer from "./Components/Nav/NavContainer";
 import News from "./Components/News/News";
 import Profile from "./Components/Profile/Profile.jsx";
 import Settings from "./Components/Settings/Settings";
+import UsersContainer from "./Components/UsersContainer/UsersContainer";
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
       <div className="content">
         <Route path="/profile" render={() => <Profile />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
+        <Route path="/users" render={() => <UsersContainer />} />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} />
