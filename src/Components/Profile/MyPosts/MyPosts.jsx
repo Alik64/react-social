@@ -27,6 +27,7 @@ export default function MyPosts(props) {
             onChange={onPostChange}
             ref={newPostElement}
             value={props.newPostText}
+            placeholder="New post"
           />
         </div>
         <div>
