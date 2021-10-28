@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
 import Friends from "./Friends/Friends";
+import FollowingsContainer from "./FollowingsContainer/FollowingsContainer";
 
 export default function Nav(props) {
   return (
@@ -33,6 +34,7 @@ export default function Nav(props) {
       </div>
 
       <Friends friends={props.friends} />
+      <FollowingsContainer />
     </nav>
   );
 }
