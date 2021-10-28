@@ -3,11 +3,12 @@ import Users from "./Users";
 import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
-  return {
-    followed: state.usersPage,
-  };
+  return {};
+};
+let mapDispatchToProps = (dispatch) => {
+  return {};
 };
 
-const userContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
 
-export default UsersContainer();
+export default UsersContainer;
