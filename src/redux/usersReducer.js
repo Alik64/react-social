@@ -6,23 +6,29 @@ let initialState = {
   users: [
     {
       id: 1,
-      name: "Vladimir",
+      photoUrl:
+        "https://t4.ftcdn.net/jpg/01/26/63/11/240_F_126631173_W9Nq8ZA5s0R0M3ZIBx3BMytVIFseGa9c.jpg",
+      fullName: "Vladimir",
       status: "I'm russian",
-      folowed: false,
+      followed: false,
       location: { city: "Moscow", country: "Russia" },
     },
     {
       id: 2,
-      name: "Franc",
+      photoUrl:
+        "https://t4.ftcdn.net/jpg/01/26/63/11/240_F_126631173_W9Nq8ZA5s0R0M3ZIBx3BMytVIFseGa9c.jpg",
+      fullName: "Franc",
       status: "I'm french",
-      folowed: true,
+      followed: true,
       location: { city: "Paris", country: "France" },
     },
     {
       id: 3,
-      name: "Jack",
+      photoUrl:
+        "https://t4.ftcdn.net/jpg/01/26/63/11/240_F_126631173_W9Nq8ZA5s0R0M3ZIBx3BMytVIFseGa9c.jpg",
+      fullName: "Jack",
       status: "I'm American",
-      folowed: true,
+      followed: true,
       location: { city: "New York", country: "USA" },
     },
   ],
@@ -35,17 +41,18 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
-            return { ...u, folowed: true };
+            return { ...u, followed: true };
           }
           return u;
         }),
       };
+
     case UNFOLLOW:
       return {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
-            return { ...u, folowed: false };
+            return { ...u, followed: false };
           }
           return u;
         }),
