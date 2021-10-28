@@ -6,8 +6,7 @@ export default function Users(props) {
     props.setUsers([
       {
         id: 1,
-        photoUrl:
-          "https://t4.ftcdn.net/jpg/01/26/63/11/240_F_126631173_W9Nq8ZA5s0R0M3ZIBx3BMytVIFseGa9c.jpg",
+        photoUrl: "https://cdn-icons-png.flaticon.com/512/660/660611.png",
         fullName: "Vladimir",
         status: "I'm russian",
         followed: false,
@@ -15,8 +14,7 @@ export default function Users(props) {
       },
       {
         id: 2,
-        photoUrl:
-          "https://t4.ftcdn.net/jpg/01/26/63/11/240_F_126631173_W9Nq8ZA5s0R0M3ZIBx3BMytVIFseGa9c.jpg",
+        photoUrl: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
         fullName: "Franc",
         status: "I'm french",
         followed: true,
@@ -24,8 +22,7 @@ export default function Users(props) {
       },
       {
         id: 3,
-        photoUrl:
-          "https://t4.ftcdn.net/jpg/01/26/63/11/240_F_126631173_W9Nq8ZA5s0R0M3ZIBx3BMytVIFseGa9c.jpg",
+        photoUrl: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
         fullName: "Jack",
         status: "I'm American",
         followed: true,
