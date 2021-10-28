@@ -9,7 +9,7 @@ export default function Followings(props) {
         {props.users.map((u) => {
           if (u.followed) {
             return (
-              <div>
+              <div className={style.following_item}>
                 <div>
                   <img src={u.photoUrl} alt="avatar" className={style.avatar} />
                 </div>
