@@ -34,7 +34,9 @@ export default function Nav(props) {
       </div>
 
       <Friends friends={props.friends} />
-      <FollowingsContainer />
+      <NavLink to="/users" activeClassName={style.active}>
+        <FollowingsContainer />
+      </NavLink>
     </nav>
   );
 }
