@@ -1,34 +1,14 @@
 import React from "react";
 import style from "./users.module.css";
+import * as axios from "axios";
 
 export default function Users(props) {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        photoUrl: "https://cdn-icons-png.flaticon.com/512/660/660611.png",
-        fullName: "Vladimir",
-        status: "I'm russian",
-        followed: false,
-        location: { city: "Moscow", country: "Russia" },
-      },
-      {
-        id: 2,
-        photoUrl: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
-        fullName: "Franc",
-        status: "I'm french",
-        followed: true,
-        location: { city: "Paris", country: "France" },
-      },
-      {
-        id: 3,
-        photoUrl: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
-        fullName: "Jack",
-        status: "I'm American",
-        followed: true,
-        location: { city: "New York", country: "USA" },
-      },
-    ]);
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        props.setUsers(response.data.items);
+      });
   }
 
   return (
@@ -62,7 +42,7 @@ export default function Users(props) {
             </div>
             <div>
               <div>
-                <div>{u.fullName}</div>
+                <div>{u.name}</div>
                 <div>{u.status}</div>
               </div>
               <div>
