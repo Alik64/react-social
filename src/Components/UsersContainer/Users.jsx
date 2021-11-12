@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./users.module.css";
 import * as axios from "axios";
+import userPhoto from "../../assets/images/user.jpg";
 
 export default function Users(props) {
   if (props.users.length === 0) {
@@ -18,7 +19,11 @@ export default function Users(props) {
           <div>
             <div>
               <div>
-                <img src={u.photoUrl} alt="avatar" className={style.avatar} />
+                <img
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
+                  alt="avatar"
+                  className={style.avatar}
+                />
               </div>
               <div>
                 {u.followed ? (
@@ -46,8 +51,8 @@ export default function Users(props) {
                 <div>{u.status}</div>
               </div>
               <div>
-                <div>{u.location.city}</div>
-                <div>{u.location.country}</div>
+                <div>{"u.location.city"}</div>
+                <div>{"u.location.country"}</div>
               </div>
             </div>
           </div>

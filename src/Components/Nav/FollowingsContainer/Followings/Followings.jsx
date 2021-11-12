@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Followings.module.css";
+import userPhoto from "../../../../assets/images/user.jpg";
 
 export default function Followings(props) {
   return (
@@ -11,9 +12,13 @@ export default function Followings(props) {
             return (
               <div className={style.following_item} key={u.id}>
                 <div>
-                  <img src={u.photoUrl} alt="avatar" className={style.avatar} />
+                  <img
+                    src={u.photos.small != null ? u.photos.small : userPhoto}
+                    alt="avatar"
+                    className={style.avatar}
+                  />
                 </div>
-                <div className={style.following_item}>{u.fullName}</div>
+                <div className={style.following_item}>{u.name}</div>
               </div>
             );
           }
