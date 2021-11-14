@@ -5,7 +5,7 @@ import userPhoto from "../../../../assets/images/user.jpg";
 export default function Followings(props) {
   return (
     <section className={style.nav_followings}>
-      <h2>Followings</h2>
+      <h2>Users</h2>
       <div className={style.followings_item}>
         {props.users.map((u) => {
           if (u.followed) {
