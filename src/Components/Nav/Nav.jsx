@@ -18,6 +18,11 @@ export default function Nav(props) {
         </NavLink>
       </div>
       <div className={style.item}>
+        <NavLink to="/users" activeClassName={style.active}>
+          Users
+        </NavLink>
+      </div>
+      <div className={style.item}>
         <NavLink to="/news" activeClassName={style.active}>
           News
         </NavLink>
@@ -33,10 +38,9 @@ export default function Nav(props) {
         </NavLink>
       </div>
 
-      <Friends friends={props.friends} />
-      <NavLink to="/users" activeClassName={style.active}>
-        <FollowingsContainer />
-      </NavLink>
+      {/* <Friends friends={props.friends} /> */}
+
+      <FollowingsContainer />
     </nav>
   );
 }
