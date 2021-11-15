@@ -6,5 +6,15 @@
 
 .selectedPage {
   font-weight: 700;
-  color: #0000ff;
+  font-size: 1.3rem;
+  color: #fff;
+
+  filter: drop-shadow(0px 0px 4px #000);
+}
+.pagination {
+  margin: 10px 0;
+}
+.page {
+  margin: 0 10px;
+  cursor: pointer;
 }
