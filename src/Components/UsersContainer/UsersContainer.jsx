@@ -1,5 +1,5 @@
 import React from "react";
-import UsersAPIComponent from "./Users";
+import UsersAPIComponent from "./UsersAPIComponent";
 import { connect } from "react-redux";
 import {
   followAC,
