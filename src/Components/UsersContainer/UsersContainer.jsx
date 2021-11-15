@@ -5,6 +5,7 @@ import {
   followAC,
   setCurrentPageAC,
   setUsersAC,
+  setUsersTotalCountAC,
   unfollowAC,
 } from "../../redux/usersReducer";
 
@@ -29,6 +30,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setCurrentPage: (pageNumber) => {
       dispatch(setCurrentPageAC(pageNumber));
+    },
+    setTotalUsersCount: (totalCount) => {
+      dispatch(setUsersTotalCountAC(totalCount));
     },
   };
 };
