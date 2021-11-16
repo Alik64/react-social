@@ -24,6 +24,7 @@ export default function Users(props) {
         {pages.map((page) => {
           return (
             <span
+              key={page.id}
               className={`${style.page} ${
                 props.currentPage === page && style.selectedPage
               }`}
