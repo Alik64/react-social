@@ -3,9 +3,18 @@ import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 
 export default function Users(props) {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
+  const PAGES_LENGTH = 10;
+  const totalPagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  const pagesCount =
+    totalPagesCount < PAGES_LENGTH ? totalPagesCount : PAGES_LENGTH;
+  const half = Math.floor(pagesCount / 2);
+  let startPage = props.currentPage - half;
+  if (startPage < 1) startPage = 1;
+  if (startPage + pagesCount > totalPagesCount)
+    startPage = totalPagesCount - pagesCount;
+
+  const pages = [];
+  for (let i = startPage; i < startPage + PAGES_LENGTH; i++) {
     pages.push(i);
   }
 
