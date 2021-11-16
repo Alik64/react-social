@@ -10,6 +10,7 @@ import {
   unfollowAC,
 } from "../../redux/usersReducer";
 import Users from "./Users";
+import Preloader from "../commun/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -41,14 +42,7 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <>
-        {this.props.isFetching ? (
-          <div style={{ display: "grid" }}>
-            <img
-              src="https://samherbert.net/svg-loaders/svg-loaders/grid.svg"
-              alt="preloader"
-            />
-          </div>
-        ) : null}
+        {this.props.isFetching ? <Preloader /> : null}
         <Users
           totalUsersCount={this.props.totalUsersCount}
           pageSize={this.props.pageSize}
