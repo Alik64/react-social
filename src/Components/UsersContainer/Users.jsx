@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./users.module.css";
+import userPhoto from "../../assets/images/user.jpg";
 
 export default function Users(props) {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -33,9 +34,7 @@ export default function Users(props) {
             <div>
               <div>
                 <img
-                  src={
-                    u.photos.small != null ? u.photos.small : props.userPhoto
-                  }
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
                   alt="avatar"
                   className={style.avatar}
                 />
