@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./users.module.css";
+
 import * as axios from "axios";
 import userPhoto from "../../assets/images/user.jpg";
 import Users from "./Users";
@@ -26,7 +26,18 @@ class UsersAPIComponent extends React.Component {
       });
   };
   render() {
-    return <Users />;
+    return (
+      <Users
+        totalUsersCount={this.props.totalUsersCount}
+        pageSize={this.props.pageSize}
+        currentPage={this.props.currentPage}
+        onPageChanged={this.onPageChanged}
+        users={this.props.users}
+        userPhoto={userPhoto}
+        follow={this.props.follow}
+        unfollow={this.props.unfollow}
+      />
+    );
   }
 }
 
