@@ -20,7 +20,16 @@ export default function ProfileInfo(props) {
       <div className={style.descriptionBlock}>
         {" "}
         <img src={props.profile.photos.small} alt="avatar" />{" "}
-        <div>{props.profile.aboutMe}</div>
+        <h2>{props.profile.fullName}</h2>
+        <h2>{props.profile.aboutMe}</h2>
+        <h3>Contacts</h3>
+        <ul>
+          <li>Facebook: {props.profile.contacts.facebook}</li>
+          <li>Twitter : {props.profile.contacts.twitter}</li>
+          <li>
+            {props.profile.lookingForAJob ? "Looking for a job" : "On mission"}
+          </li>
+        </ul>
       </div>
     </div>
   );
