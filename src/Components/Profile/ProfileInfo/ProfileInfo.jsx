@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./ProfileInfo.module.css";
 
-export default function Profile() {
+export default function ProfileInfo(props) {
   return (
     <div>
       <div>
@@ -12,7 +12,11 @@ export default function Profile() {
           width="100%"
         />
       </div>
-      <div className={style.descriptionBlock}>ava + description</div>
+      <div className={style.descriptionBlock}>
+        {" "}
+        <img src={props.profile.photos.small} alt="avatar" />{" "}
+        <div>{props.profile.aboutMe}</div>
+      </div>
     </div>
   );
 }
