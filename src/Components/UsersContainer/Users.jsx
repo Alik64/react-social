@@ -3,11 +3,14 @@ import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 
 export default function Users(props) {
-  const PAGES_LENGTH = 10;
-  const totalPagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  const PAGES_LENGTH = 10; // nombre max de page à afficher
+  const totalPagesCount = Math.ceil(props.totalUsersCount / props.pageSize); // Nb de pages total
+
   const pagesCount =
     totalPagesCount < PAGES_LENGTH ? totalPagesCount : PAGES_LENGTH;
+
   const half = Math.floor(pagesCount / 2);
+
   let startPage = props.currentPage - half;
   if (startPage < 1) startPage = 1;
   if (startPage + pagesCount > totalPagesCount)
