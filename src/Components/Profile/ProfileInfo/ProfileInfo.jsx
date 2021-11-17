@@ -1,7 +1,12 @@
 import React from "react";
+import Preloader from "../../commun/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
 
 export default function ProfileInfo(props) {
+  if (!props.profile) {
+    return <Preloader />;
+  }
+
   return (
     <div>
       <div>
