@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
+import { NavLink } from "react-router-dom";
 
 export default function Users(props) {
   const PAGES_LENGTH = 10; // nombre max de page à afficher
@@ -23,6 +24,7 @@ export default function Users(props) {
 
   return (
     <div>
+      {/* Pagination */}
       <div className={style.pagination}>
         {pages.map((page) => {
           return (
@@ -40,51 +42,59 @@ export default function Users(props) {
           );
         })}
       </div>
-
-      {props.users.map((u) => (
-        <div key={u.id}>
-          <div>
+      {/*Users */}
+      <div className={style.wrapper}>
+        {props.users.map((u) => (
+          <div key={u.id}>
             <div>
               <div>
-                <img
-                  src={u.photos.small != null ? u.photos.small : userPhoto}
-                  alt="avatar"
-                  className={style.avatar}
-                />
-              </div>
-              <div>
-                {u.followed ? (
-                  <button
-                    onClick={() => {
-                      props.unfollow(u.id);
-                    }}
-                  >
-                    Unfollow
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      props.follow(u.id);
-                    }}
-                  >
-                    Follow
-                  </button>
-                )}
-              </div>
-            </div>
-            <div>
-              <div>
-                <div>{u.name}</div>
-                <div>{u.status}</div>
-              </div>
-              <div>
-                <div>{"u.location.city"}</div>
-                <div>{"u.location.country"}</div>
+                <div>
+                  <div>
+                    <NavLink to={"/profile/" + u.id}>
+                      <img
+                        src={
+                          u.photos.small != null ? u.photos.small : userPhoto
+                        }
+                        alt="avatar"
+                        className={style.avatar}
+                      />
+                    </NavLink>
+                  </div>
+                  <div>
+                    {u.followed ? (
+                      <button
+                        onClick={() => {
+                          props.unfollow(u.id);
+                        }}
+                      >
+                        Unfollow
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          props.follow(u.id);
+                        }}
+                      >
+                        Follow
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <div>{u.name}</div>
+                    <div>{u.status}</div>
+                  </div>
+                  <div>
+                    <div>{"u.location.city"}</div>
+                    <div>{"u.location.country"}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
