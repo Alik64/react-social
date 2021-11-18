@@ -2,7 +2,8 @@ import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import Header from "./Components/Header/Header.jsx";
+
+import HeaderContainer from "./Components/Header/HeaderContainer";
 import Music from "./Components/Music/Music";
 
 import NavContainer from "./Components/Nav/NavContainer";
@@ -15,7 +16,7 @@ import UsersContainer from "./Components/UsersContainer/UsersContainer";
 function App(props) {
   return (
     <div className="app-wrapper">
-      <Header />
+      <HeaderContainer />
       <NavContainer />
       <div className="content">
         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />

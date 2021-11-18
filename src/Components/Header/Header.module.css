@@ -1,7 +1,12 @@
 .header {
   grid-area: h;
   background-color: #fff;
+  display: flex;
 }
 header img {
   width: 60px;
+}
+.loginBlock {
+  margin-left: auto;
+  padding: 10px;
 }
