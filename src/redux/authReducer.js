@@ -2,11 +2,10 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 
 let initialState = {
-  users: [],
-  pageSize: 10,
-  totalUsersCount: 0,
-  currentPage: 1,
-  isFetching: false,
+  userId: null,
+  email: null,
+  login: null,
+  // isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
