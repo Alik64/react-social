@@ -2,6 +2,7 @@ import React from "react";
 import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 export default function Users(props) {
   const PAGES_LENGTH = 10; // nombre max de page à afficher
@@ -30,9 +31,8 @@ export default function Users(props) {
           return (
             <span
               key={page.id}
-              className={`${style.page} ${
-                props.currentPage === page && style.selectedPage
-              }`}
+              className={`${style.page} ${props.currentPage === page && style.selectedPage
+                }`}
               onClick={(e) => {
                 props.onPageChanged(page);
               }}
@@ -64,7 +64,18 @@ export default function Users(props) {
                     {u.followed ? (
                       <button
                         onClick={() => {
-                          props.unfollow(u.id);
+                          axios
+                            .delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                              withCredentials: true,
+                              headers: {
+                                "API-KEY": "6be562ec-a00d-4f86-84ca-4bf41f9245b1"
+                              }
+                            })
+                            .then((response) => {
+                              if (response.data.resultCode === 0) {
+                                props.unfollow(u.id);
+                              }
+                            });
                         }}
                       >
                         Unfollow
@@ -72,11 +83,21 @@ export default function Users(props) {
                     ) : (
                       <button
                         onClick={() => {
-                          props.follow(u.id);
+                          axios
+                            .post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+
+                              withCredentials: true,
+                              headers: {
+                                "API-KEY": "6be562ec-a00d-4f86-84ca-4bf41f9245b1"
+                              }
+                            })
+                            .then((response) => {
+                              if (response.data.resultCode === 0) {
+                                props.follow(u.id);
+                              }
+                            });
                         }}
-                      >
-                        Follow
-                      </button>
+                      >Follow</button>
                     )}
                   </div>
                 </div>
