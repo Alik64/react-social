@@ -69,6 +69,17 @@ let mapStateToProps = (state) => {
   };
 };
 
+
+export default connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setUsersTotalCount,
+  toggleIsFetching,
+})(UsersContainer);
+
+
 // let mapDispatchToProps = (dispatch) => {
 //   return {
 //     follow: (userId) => {
@@ -91,12 +102,3 @@ let mapStateToProps = (state) => {
 //     },
 //   };
 // };
-
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setUsersTotalCount,
-  toggleIsFetching,
-})(UsersContainer);
