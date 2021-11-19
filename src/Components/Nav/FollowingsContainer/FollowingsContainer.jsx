@@ -7,8 +7,6 @@ let mapStateToProps = (state) => {
     users: state.usersPage.users,
   };
 };
-let mapDispatchToProps = (dispatch) => {
-  return {};
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Followings);
+
+export default connect(mapStateToProps, {})(Followings);
