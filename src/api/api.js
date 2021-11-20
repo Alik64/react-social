@@ -27,11 +27,12 @@ export const followAPI = {
             `follow/${id}`)
             .then(response => response.data)
     },
-    unfollow(id) {
-        return instance.delete(
-            `follow/${id}`)
-            .then(response => response.data)
+    async unfollow(id) {
+        const response = await instance.delete(
+            `follow/${id}`);
+        return response.data;
     },
+
 
 
 }
