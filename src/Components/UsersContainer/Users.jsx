@@ -65,13 +65,13 @@ export default function Users(props) {
                       <button disabled={props.followingInProgress.some(id => id === u.id)}
                         onClick={() => {
 
-                          props.toggleFollowingProgress(true)
+                          props.toggleFollowingProgress(true, u.id)
                           followAPI.unfollow(u.id)
                             .then((data) => {
                               if (data.resultCode === 0) {
                                 props.unfollow(u.id);
                               }
-                              props.toggleFollowingProgress(false)
+                              props.toggleFollowingProgress(false, u.id)
                             });
 
 
@@ -84,7 +84,7 @@ export default function Users(props) {
 
                         onClick={() => {
 
-                          props.toggleFollowingProgress(true)
+                          props.toggleFollowingProgress(true, u.id)
 
                           followAPI
                             .follow(u.id)
@@ -92,7 +92,7 @@ export default function Users(props) {
                               if (data.resultCode === 0) {
                                 props.follow(u.id);
                               }
-                              props.toggleFollowingProgress(false)
+                              props.toggleFollowingProgress(false, u.id)
                             });
 
 
