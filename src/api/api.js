@@ -26,4 +26,6 @@ export const followAPI = {
             `https://social-network.samuraijs.com/api/1.0/follow/${id}`)
             .then(response => response.data)
     }
+
+
 }
