@@ -62,28 +62,40 @@ export default function Users(props) {
                   </div>
                   <div>
                     {u.followed ? (
-                      <button
+                      <button disabled={props.followingInProgress}
                         onClick={() => {
+
+                          props.toggleFollowingProgress(true)
                           followAPI.unfollow(u.id)
                             .then((data) => {
                               if (data.resultCode === 0) {
                                 props.unfollow(u.id);
                               }
+                              props.toggleFollowingProgress(false)
                             });
+
+
                         }}
                       >
                         Unfollow
                       </button>
                     ) : (
                       <button
+                        disabled={props.followingInProgress}
                         onClick={() => {
+
+                          props.toggleFollowingProgress(true)
+
                           followAPI
                             .follow(u.id)
                             .then((data) => {
                               if (data.resultCode === 0) {
                                 props.follow(u.id);
                               }
+                              props.toggleFollowingProgress(false)
                             });
+
+
                         }}
                       >Follow</button>
                     )}
