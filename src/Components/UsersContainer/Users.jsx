@@ -80,8 +80,8 @@ export default function Users(props) {
                         Unfollow
                       </button>
                     ) : (
-                      <button
-                        disabled={props.followingInProgress}
+                      <button disabled={props.followingInProgress}
+
                         onClick={() => {
 
                           props.toggleFollowingProgress(true)
