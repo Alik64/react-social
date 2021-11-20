@@ -16,6 +16,7 @@ class FollowingsContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
+    followingInProgress: state.usersPage.followingInProgress
   };
 };
 
