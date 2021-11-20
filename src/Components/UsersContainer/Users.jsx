@@ -62,7 +62,7 @@ export default function Users(props) {
                   </div>
                   <div>
                     {u.followed ? (
-                      <button disabled={props.followingInProgress}
+                      <button disabled={props.followingInProgress.some(id => id === u.id)}
                         onClick={() => {
 
                           props.toggleFollowingProgress(true)
@@ -80,7 +80,7 @@ export default function Users(props) {
                         Unfollow
                       </button>
                     ) : (
-                      <button disabled={props.followingInProgress}
+                      <button disabled={props.followingInProgress.some(id => id === u.id)}
 
                         onClick={() => {
 
