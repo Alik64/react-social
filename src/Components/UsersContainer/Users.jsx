@@ -3,6 +3,7 @@ import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { followAPI } from "../../api/api";
 
 export default function Users(props) {
   const PAGES_LENGTH = 10; // nombre max de page à afficher
@@ -83,16 +84,10 @@ export default function Users(props) {
                     ) : (
                       <button
                         onClick={() => {
-                          axios
-                            .post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-
-                              withCredentials: true,
-                              headers: {
-                                "API-KEY": "6be562ec-a00d-4f86-84ca-4bf41f9245b1"
-                              }
-                            })
-                            .then((response) => {
-                              if (response.data.resultCode === 0) {
+                          followAPI
+                            .follow(u.id)
+                            .then((data) => {
+                              if (data.resultCode === 0) {
                                 props.follow(u.id);
                               }
                             });
