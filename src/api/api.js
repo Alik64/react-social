@@ -1,5 +1,5 @@
 import axios from "axios";
-import { unfollow } from "../redux/usersReducer";
+
 
 const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
@@ -31,14 +31,20 @@ export const followAPI = {
         const response = await instance.delete(
             `follow/${id}`);
         return response.data;
-    },
-
-
-
+    }
 }
 
 export const authAPI = {
     authMe() {
         return instance.get(`auth/me`).then(response => response.data)
+    }
+}
+
+export const profileAPI = {
+    async getProfile(id) {
+        const response = await instance.get(
+            `profile/${id}`
+        )
+        return response.data
     }
 }
