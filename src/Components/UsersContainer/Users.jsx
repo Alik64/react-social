@@ -65,15 +65,9 @@ export default function Users(props) {
                     {u.followed ? (
                       <button
                         onClick={() => {
-                          axios
-                            .delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                              withCredentials: true,
-                              headers: {
-                                "API-KEY": "6be562ec-a00d-4f86-84ca-4bf41f9245b1"
-                              }
-                            })
-                            .then((response) => {
-                              if (response.data.resultCode === 0) {
+                          followAPI.unfollow(u.id)
+                            .then((data) => {
+                              if (data.resultCode === 0) {
                                 props.unfollow(u.id);
                               }
                             });
