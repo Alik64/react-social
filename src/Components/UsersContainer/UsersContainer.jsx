@@ -8,6 +8,8 @@ import {
   toggleIsFetching,
   toggleFollowingProgress,
   unfollow,
+  getUsersThunkCreator
+
 } from "../../redux/usersReducer";
 import Users from "./Users";
 import Preloader from "../commun/Preloader/Preloader";
@@ -77,7 +79,7 @@ export default connect(mapStateToProps, {
   setUsersTotalCount,
   toggleIsFetching,
   toggleFollowingProgress,
-
+  getUsersThunkCreator
 
 })(UsersContainer);
 
