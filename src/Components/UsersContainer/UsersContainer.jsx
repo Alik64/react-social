@@ -17,14 +17,15 @@ import { usersAPI } from "../../api/api";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
+    this.props.getUsersThunkCreator()
+    // this.props.toggleIsFetching(true);
 
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
+    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
 
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(data.items);
-      this.props.setUsersTotalCount(data.totalCount);
-    });
+    //   this.props.toggleIsFetching(false);
+    //   this.props.setUsers(data.items);
+    //   this.props.setUsersTotalCount(data.totalCount);
+    // });
   }
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
