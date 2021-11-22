@@ -4,6 +4,7 @@ import "./App.css";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import LoginPage from "./Components/Login/Login";
 import Music from "./Components/Music/Music";
 
 import NavContainer from "./Components/Nav/NavContainer";
@@ -22,7 +23,7 @@ function App(props) {
         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/users" render={() => <UsersContainer />} />
-        <Route path="/login" render={() => <UsersContainer />} />
+        <Route path="/login" render={() => <LoginPage />} />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} />
