@@ -32,9 +32,15 @@ export const usersAPI = {
 
 }
 export const authAPI = {
-    authMe() {
-        return instance.get(`auth/me`).then(response => response.data)
+
+    async authMe() {
+        const response = await instance.get(`auth/me`)
+        return response.data
     }
+
+    // authMe() {
+    //     return instance.get(`auth/me`).then(response => response.data)
+    // }
 }
 
 export const profileAPI = {
