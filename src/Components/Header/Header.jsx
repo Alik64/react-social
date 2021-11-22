@@ -9,6 +9,7 @@ export default function Header(props) {
         <img src="/logo-samurai.png" alt="samurai" className={style.logo} />
 
       </div>
+      <h3>React Samourai  <span className={style.samourai}> 侍 </span> </h3>
       <div className={style.loginBlock}>
         {props.isAuth ?
 

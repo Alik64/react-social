@@ -3,6 +3,8 @@
   background-color: #001233;
   color: #c4c4c4;
   display: flex;
+  align-items: center;
+  font-weight: 700;
 }
 .loginBlock {
   margin-left: auto;
@@ -15,11 +17,16 @@
 .logo {
   border-radius: 50%;
   object-fit: contain;
-  width: 50px;
+  width: 60px;
   padding: 10px 20px;
 }
 
 .logoDiv {
   display: grid;
   place-items: center;
+}
+
+.samourai {
+  font-weight: 700;
+  font-size: 22px;
 }
