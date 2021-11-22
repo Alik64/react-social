@@ -11,10 +11,10 @@ export default function ProfileInfo(props) {
     <div>
       <div>
         <img
-          src="https://jooinn.com/images/beach-194.jpg"
+          className={style.baniere}
+          src="https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
           alt=""
-          height="400px"
-          width="100%"
+
         />
       </div>
       <div className={style.descriptionBlock}>
