@@ -13,7 +13,7 @@ export default function ProfileInfo(props) {
         <img
           className={style.baniere}
           src="https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-          alt=""
+          alt="cosmos"
 
         />
       </div>
