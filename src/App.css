@@ -13,12 +13,12 @@
 
 .nav {
   grid-area: n;
-  background: #948acf;
+  background: #001233;
 }
 
 .content {
   grid-area: c;
-  background-color: #c7a93d;
+  background-color: #979dac;
 }
 
 a {
