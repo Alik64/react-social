@@ -2,8 +2,7 @@ import React from "react";
 import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
-import { unfollowThunk } from "../../redux/usersReducer";
+
 
 export default function Users(props) {
   const PAGES_LENGTH = 10; // nombre max de page à afficher
