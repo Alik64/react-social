@@ -34,6 +34,7 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
+// actoin creators
 export const addPostActionCreator = () => ({ type: ADD_POST });
 export const updateNewPostActionCreator = (text) => ({
   type: UPDATE_NEW_POST,
@@ -43,5 +44,10 @@ export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
 });
+
+//thunk creators
+
+
+
 
 export default profileReducer;
