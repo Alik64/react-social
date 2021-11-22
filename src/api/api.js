@@ -17,23 +17,20 @@ export const usersAPI = {
         return instance.get(
             `users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
-    }
-
-}
-
-export const followAPI = {
-    follow(id) {
-        return instance.post(
+    },
+    async follow(id) {
+        const response = await instance.post(
             `follow/${id}`)
-            .then(response => response.data)
+        return response.data
     },
     async unfollow(id) {
         const response = await instance.delete(
             `follow/${id}`);
         return response.data;
     }
-}
 
+
+}
 export const authAPI = {
     authMe() {
         return instance.get(`auth/me`).then(response => response.data)

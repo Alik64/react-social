@@ -2,7 +2,7 @@ import React from "react";
 import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
-import { followAPI } from "../../api/api";
+import { usersAPI } from "../../api/api";
 
 export default function Users(props) {
   const PAGES_LENGTH = 10; // nombre max de page à afficher
@@ -66,7 +66,7 @@ export default function Users(props) {
                         onClick={() => {
 
                           props.toggleFollowingProgress(true, u.id)
-                          followAPI.unfollow(u.id)
+                          usersAPI.unfollow(u.id)
                             .then((data) => {
                               if (data.resultCode === 0) {
                                 props.unfollow(u.id);
@@ -86,7 +86,7 @@ export default function Users(props) {
 
                           props.toggleFollowingProgress(true, u.id)
 
-                          followAPI
+                          usersAPI
                             .follow(u.id)
                             .then((data) => {
                               if (data.resultCode === 0) {

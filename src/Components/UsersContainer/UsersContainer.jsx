@@ -2,10 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   follow,
-  setCurrentPage,
-  setUsers,
-  setUsersTotalCount,
-  toggleIsFetching,
   toggleFollowingProgress,
   unfollow,
   getUsers
