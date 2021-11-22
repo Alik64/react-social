@@ -6,10 +6,20 @@
 }
 .loginBlock {
   margin-left: auto;
+  margin-right: 20px;
   padding: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
 }
 .logo {
   border-radius: 50%;
   object-fit: contain;
-  width: 40px;
+  width: 50px;
+  padding: 10px 20px;
+}
+
+.logoDiv {
+  display: grid;
+  place-items: center;
 }

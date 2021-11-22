@@ -5,7 +5,7 @@ import style from "./Header.module.css";
 export default function Header(props) {
   return (
     <header className={style.header}>
-      <div>
+      <div className={style.logoDiv}  >
         <img src="/logo-samurai.png" alt="samurai" className={style.logo} />
 
       </div>
