@@ -1,7 +1,7 @@
 .nav_followings {
   margin-top: 50px;
 }
-.nav_followings h2 {
+.nav_followings h4 {
   color: #fff;
 }
 .followings_item {
@@ -24,4 +24,5 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  font-size: 12px;
 }

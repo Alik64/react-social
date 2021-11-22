@@ -10,7 +10,7 @@ export default function Followings(props) {
 
   return (
     <section className={style.nav_followings}>
-      <h2>Followings</h2>
+      <h4>Followings</h4>
       <div className={style.followings_item}>
 
 
