@@ -1,7 +1,7 @@
 import React from "react";
 import Preloader from "../../commun/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
-
+import userPhoto from "./../../../assets/images/user.jpg"
 export default function ProfileInfo(props) {
   if (!props.profile) {
     return <Preloader />;
@@ -19,7 +19,9 @@ export default function ProfileInfo(props) {
       </div>
       <div className={style.descriptionBlock}>
         {" "}
-        <img src={props.profile.photos.small} alt="avatar" />{" "}
+
+        <img className={style.ava}
+          src={props.profile.photos.small != null ? props.profile.photos.small : userPhoto} alt="avatar" />{" "}
         <h2>{props.profile.fullName}</h2>
         <h2>{props.profile.aboutMe}</h2>
         <h3>Contacts</h3>

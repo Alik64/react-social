@@ -4,3 +4,7 @@
 .baniere {
   width: 100%;
 }
+.ava {
+  width: 100px;
+  border-radius: 50%;
+}

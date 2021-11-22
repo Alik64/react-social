@@ -18,32 +18,23 @@ export const usersAPI = {
             `users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
-    async follow(id) {
-        const response = await instance.post(
-            `follow/${id}`)
-        return response.data
+    follow(id) {
+        return instance.post(`follow/${id}`).then(response => response.data)
     },
-    async unfollow(id) {
-        const response = await instance.delete(
-            `follow/${id}`);
-        return response.data;
+    unfollow(id) {
+        return instance.delete(
+            `follow/${id}`).then(response => response.data)
     },
     getProfile(id) {
         return instance.get(`profile/${id}`)
-
     }
 
 
 }
 export const authAPI = {
 
-    async authMe() {
-        const response = await instance.get(`auth/me`)
-        return response.data
+    me() {
+        return instance.get(`auth/me`)
     }
-
-    // authMe() {
-    //     return instance.get(`auth/me`).then(response => response.data)
-    // }
 }
 

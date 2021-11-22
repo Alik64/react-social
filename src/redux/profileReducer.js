@@ -49,15 +49,13 @@ export const setUserProfile = (profile) => ({
 
 //thunk creators
 
-export const getProfile = (userId) => {
-  return (dispatch) => {
+export const getUserProfile = (userId) => (dispatch) => {
 
-    usersAPI.getProfile(userId)
-      .then((data) => {
-        dispatch(setUserProfile(data));
-      });
-  }
+  usersAPI.getProfile(userId).then((response) => {
+    dispatch(setUserProfile(response.data));
+  });
 }
+
 
 
 export default profileReducer;
