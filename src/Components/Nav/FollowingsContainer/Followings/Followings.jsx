@@ -12,8 +12,6 @@ export default function Followings(props) {
     <section className={style.nav_followings}>
       <h4>Followings</h4>
       <div className={style.followings_item}>
-
-
         {props.users.map((u) => {
           if (u.followed) {
             return (
