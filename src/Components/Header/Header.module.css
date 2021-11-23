@@ -16,7 +16,7 @@
 }
 .logo {
   border-radius: 50%;
-  width: 60px;
+  width: 70px;
   padding: 10px 20px;
 }
 
@@ -32,6 +32,6 @@
 .logo_samurai {
   position: absolute;
   top: 20px;
-  left: 33px;
-  width: 37px;
+  left: 36px;
+  width: 40px;
 }
