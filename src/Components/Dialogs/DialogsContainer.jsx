@@ -23,9 +23,6 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
-let AuthRedirectComponent = (props) => {
-  if (!props.isAuth) return <Redirect to="/login" />
-  return <Dialogs {...props} />
-}
+
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 export default DialogsContainer;
