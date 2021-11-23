@@ -8,10 +8,20 @@ import {
 import Dialogs from "./Dialogs";
 
 
+
+let AuthRedirectComponent = withAuthRedirect(Dialogs)
+let mapStateToPropsForRedirect = (state) => {
+  return {
+    isAuth: state.auth.isAuth
+  };
+};
+
+AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent)
+
 let mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
-    isAuth: state.auth.isAuth
+
   };
 };
 let mapDispatchToProps = (dispatch) => {
@@ -24,8 +34,5 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
-
-let AuthRedirectComponent = withAuthRedirect(Dialogs)
-
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 export default DialogsContainer;
