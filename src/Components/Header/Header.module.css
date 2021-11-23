@@ -16,7 +16,6 @@
 }
 .logo {
   border-radius: 50%;
-  object-fit: contain;
   width: 60px;
   padding: 10px 20px;
 }
@@ -29,4 +28,10 @@
 .samourai {
   font-weight: 700;
   font-size: 22px;
+}
+.logo_samurai {
+  position: absolute;
+  top: 20px;
+  left: 33px;
+  width: 37px;
 }
