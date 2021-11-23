@@ -29,8 +29,7 @@ export default function Dialogs(props) {
     props.updateNewMessageText(text);
   };
 
-  if (!this.props.isAuth) return <Redirect to="/login" />
-
+  if (!props.isAuth) return <Redirect to={"/login"} />
   return (
     <div className={style.dialogs}>
       <div className={style.dialogs_items}>{dialogsElements}</div>
