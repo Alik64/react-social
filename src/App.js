@@ -20,7 +20,7 @@ function App(props) {
       <HeaderContainer />
       <NavContainer />
       <div className="content">
-        <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+        <Route exact path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/users" render={() => <UsersContainer />} />
         <Route path="/login" render={() => <LoginPage />} />
