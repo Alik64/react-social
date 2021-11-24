@@ -2,6 +2,7 @@ import React from "react";
 import Preloader from "../../commun/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
 import userPhoto from "./../../../assets/images/user.jpg"
+import ProfileStatus from "./ProfileStatus"
 export default function ProfileInfo(props) {
   if (!props.profile) {
     return <Preloader />;
@@ -24,6 +25,7 @@ export default function ProfileInfo(props) {
           src={props.profile.photos.small != null ? props.profile.photos.small : userPhoto} alt="avatar" />{" "}
         <h2>{props.profile.fullName}</h2>
         <h2>{props.profile.aboutMe}</h2>
+        <ProfileStatus status="Hello!" />
         <h3>Contacts</h3>
         <ul>
           <li>Facebook: {props.profile.contacts.facebook}</li>
