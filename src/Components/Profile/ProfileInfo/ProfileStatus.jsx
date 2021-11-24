@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
 export default class ProfileStatus extends Component {
-    statusInputRef = React.createRef()
+
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
     activatedMode = () => {
 
@@ -15,6 +16,7 @@ export default class ProfileStatus extends Component {
         this.setState({
             editMode: false
         })
+        this.props.updateStatus(this.statusInputRef.current.value)
     }
 
     render() {
@@ -22,7 +24,7 @@ export default class ProfileStatus extends Component {
             <div>
 
                 {this.state.editMode
-                    ? <div><input ref={this.statusInputRef} autoFocus={true} onBlur={this.desactivatedMode} type="text" value={this.props.status} /></div>
+                    ? <div><input autoFocus={true} onBlur={this.desactivatedMode} type="text" value={this.props.status} /></div>
                     : <div><span onClick={this.activatedMode}>{this.props.status}</span></div>}
 
             </div>
