@@ -40,7 +40,7 @@ export default function ProfileInfo(props) {
 
         <h2>{props.profile.fullName}</h2>
         <h2>{props.profile.aboutMe}</h2>
-        <ProfileStatus status="Hello!" />
+        <ProfileStatus status={props.status} />
         <h3>Contacts</h3>
         <ul>
           <li>Facebook: {props.profile.contacts.facebook}</li>
