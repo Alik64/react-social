@@ -4,6 +4,7 @@ import style from "./ProfileInfo.module.css";
 import userPhoto from "./../../../assets/images/user.jpg"
 import ProfileStatus from "./ProfileStatus"
 import axios from "axios";
+import { usersAPI } from "../../../api/api";
 
 
 export default function ProfileInfo(props) {
@@ -15,14 +16,8 @@ export default function ProfileInfo(props) {
     let photo = e.target.files[0]
     let formData = new FormData()
     formData.append('image', photo)
+    usersAPI.putPhoto(formData)
 
-    return axios.post('https://social-network.samuraijs.com/api/1.0/profile/photo', formData, {
-      withCredentials: true,
-      headers: {
-        "API-KEY": "6be562ec-a00d-4f86-84ca-4bf41f9245b1",
-        'Content-Type': 'multipart/form-data'
-      }
-    }).then(res => console.log(res.data))
   }
 
   return (
