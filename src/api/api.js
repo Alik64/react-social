@@ -6,7 +6,7 @@ const instance = axios.create({
     withCredentials: true,
     headers: {
         "API-KEY": "6be562ec-a00d-4f86-84ca-4bf41f9245b1",
-        'Content-Type': 'multipart/form-data'
+
     }
 
 })
@@ -31,7 +31,11 @@ export const usersAPI = {
         return profileAPI.getProfile(id)
     },
     putPhoto(formData) {
-        return instance.post('https://social-network.samuraijs.com/api/1.0/profile/photo', formData)
+        return instance.post('https://social-network.samuraijs.com/api/1.0/profile/photo', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 }
 

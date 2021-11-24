@@ -8,3 +8,7 @@
   width: 100px;
   border-radius: 50%;
 }
+.status {
+  border: 1px solid red;
+  height: 20px;
+}
