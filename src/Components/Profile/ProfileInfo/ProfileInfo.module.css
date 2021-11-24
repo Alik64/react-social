@@ -9,6 +9,6 @@
   border-radius: 50%;
 }
 .status {
-  border: 1px solid red;
-  height: 20px;
+  font-style: italic;
+  font-weight: 700;
 }

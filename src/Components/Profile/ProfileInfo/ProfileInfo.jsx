@@ -3,7 +3,6 @@ import Preloader from "../../commun/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
 import userPhoto from "./../../../assets/images/user.jpg"
 import ProfileStatus from "./ProfileStatus"
-import axios from "axios";
 import { usersAPI } from "../../../api/api";
 
 
@@ -38,7 +37,8 @@ export default function ProfileInfo(props) {
 
         <h2>{props.profile.fullName}</h2>
         <h2>{props.profile.aboutMe}</h2>
-        <div className={style.status} ><ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} />
+        <div className={style.status} >
+          <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} />
         </div>
         <h3>Contacts</h3>
         <ul>
