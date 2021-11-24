@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class ProfileStatus extends Component {
 
     state = {
-        editMode: true,
+        editMode: false,
         status: this.props.status
     }
     activatedMode = () => {
@@ -30,7 +30,7 @@ export default class ProfileStatus extends Component {
             <div>
 
                 {!this.state.editMode
-                    ? <div><span onClick={this.activatedMode}>{this.props.status}</span></div>
+                    ? <div><span onClick={this.activatedMode}>{this.props.status || "Enter your status"}</span></div>
                     : <div><input onChange={this.onStatusChange} autoFocus={true} onBlur={this.desactivatedMode} type="text" value={this.state.status} /></div>}
 
             </div>
