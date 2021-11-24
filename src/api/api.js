@@ -27,11 +27,26 @@ export const usersAPI = {
             `follow/${id}`).then(response => response.data)
     },
     getProfile(id) {
-        return instance.get(`profile/${id}`)
+        console.warn('Obsolete method. Please use ProfileAPI')
+        return profileAPI.getProfile(id)
     },
     putPhoto(formData) {
         return instance.post('https://social-network.samuraijs.com/api/1.0/profile/photo', formData)
+    }
+}
 
+export const profileAPI = {
+
+    getProfile(id) {
+        return instance.get(`profile/${id}`)
+    },
+    getStatus(userId) {
+        return instance.get(`status/${userId}`)
+    },
+    updateStatus(status) {
+        return instance.put(`status`, {
+            status: status
+        })
     }
 }
 
