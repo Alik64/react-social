@@ -27,10 +27,10 @@ export default function Users(props) {
     <div>
       {/* Pagination */}
       <div className={style.pagination}>
-        {pages.map((page) => {
+        {pages.map((page, index) => {
           return (
             <span
-              key={page.id}
+              key={index}
               className={`${style.page} ${props.currentPage === page && style.selectedPage
                 }`}
               onClick={(e) => {
