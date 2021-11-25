@@ -29,7 +29,7 @@ export default class ProfileStatus extends Component {
                 status: this.props.status
             })
         }
-        console.log("componentDidUpdate")
+
     }
     render() {
         return (
