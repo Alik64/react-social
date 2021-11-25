@@ -29,6 +29,9 @@ export default function Followings(props) {
               </div>
             );
           }
+          else {
+            return null
+          }
         })}
       </div>
     </section>
