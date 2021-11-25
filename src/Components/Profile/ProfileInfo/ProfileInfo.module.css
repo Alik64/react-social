@@ -1,12 +1,19 @@
 .descriptionBlock {
   padding: 10px;
+  margin-top: 35px;
 }
 .baniere {
+  max-height: 200px;
   width: 100%;
+  border-radius: 5px;
 }
 .ava {
-  width: 100px;
+  width: 150px;
   border-radius: 50%;
+  position: absolute;
+  top: 23%;
+  left: 25%;
+  border: 5px solid #d4d8e8;
 }
 .status {
   font-style: italic;

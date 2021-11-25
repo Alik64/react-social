@@ -15,6 +15,8 @@
   font-weight: 700;
 }
 .logo {
+  position: relative;
+  top: 20px;
   border-radius: 50%;
   width: 70px;
   padding: 10px 20px;
@@ -30,8 +32,8 @@
   font-size: 22px;
 }
 .logo_samurai {
-  position: absolute;
-  top: 20px;
-  left: 36px;
+  position: relative;
+  top: -44px;
+  left: 0;
   width: 40px;
 }

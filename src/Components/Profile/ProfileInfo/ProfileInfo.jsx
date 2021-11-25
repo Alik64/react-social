@@ -27,11 +27,15 @@ export default function ProfileInfo(props) {
           src="https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
           alt="cosmos" />
       </div>
+
+      <div>
+        <img className={style.ava}
+          src={props.profile.photos.small != null ? props.profile.photos.small : userPhoto} alt="avatar" />
+      </div>
       <div className={style.descriptionBlock}>
         {" "}
 
-        <img className={style.ava}
-          src={props.profile.photos.small != null ? props.profile.photos.small : userPhoto} alt="avatar" />
+
 
         <input type="file" id="photo" onChange={putPhoto} />
 
