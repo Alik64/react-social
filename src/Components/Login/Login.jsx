@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { reduxForm } from 'redux-form'
+
 const LoginForm = (props) => {
     return (
         <form >
@@ -23,7 +25,8 @@ const LoginForm = (props) => {
 
 
 
-export default function Login() {
+
+export default function Login(props) {
     return (
         <div>
             <h1>Login</h1>
