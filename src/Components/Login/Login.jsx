@@ -1,25 +1,21 @@
-import React from 'react'
+// Render Prop
+import React from 'react';
 
 
-export default function Login() {
+
+
+
+
+
+
+
+export default function Login(props) {
     return (
         <div>
             <h1>Login</h1>
-            <form >
-                <div>
-                    <input type={"text"} placeholder={"Login"} />
 
-                </div>
-                <div>
-                    <input type={"password"} placeholder={'Password'} />
-                </div>
-                <div>
-                    <input type={"checkbox"} /> Remember me
-                </div>
-                <div>
-                    <button>Login</button>
-                </div>
-            </form>
         </div>
+
     )
 }
+
