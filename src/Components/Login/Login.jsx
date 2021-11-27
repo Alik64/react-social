@@ -1,4 +1,4 @@
-// Render Prop
+
 import React from 'react';
 
 
