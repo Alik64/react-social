@@ -1,5 +1,12 @@
 import React from 'react'
 
+class MiniFormik extends React.Component {
+    state = {
+        render() {
+            return this.props.children({ ...this.state })
+        }
+    }
+}
 class Login extends React.Component {
     constructor(props) {
         super(props);
