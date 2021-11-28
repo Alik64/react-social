@@ -47,6 +47,7 @@ export default function Dialogs(props) {
           <div>
             <button onClick={addMessage}>New message</button>
           </div>
+          <pre>{JSON.stringify(props, null, 2)}</pre>
         </div>
       </div>
     </div>

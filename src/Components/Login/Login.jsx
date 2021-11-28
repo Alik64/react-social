@@ -30,6 +30,7 @@ class Login extends React.Component {
 
     render() {
         return (
+
             <form>
                 <label>
                     Participe :
@@ -49,6 +50,7 @@ class Login extends React.Component {
                         onChange={this.handleInputChange} />
                 </label>
             </form>
+
         );
     }
 }
