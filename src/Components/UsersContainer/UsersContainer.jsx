@@ -25,7 +25,7 @@ class UsersContainer extends React.Component {
   };
   render() {
     return (
-      <div>
+      <>
         {this.props.isFetching ? <Preloader /> : null}
         <Users
           totalUsersCount={this.props.totalUsersCount}
@@ -37,33 +37,33 @@ class UsersContainer extends React.Component {
           unfollow={this.props.unfollow}
           followingInProgress={this.props.followingInProgress}
         />
-        <div />
-        );
+      </>
+    );
   }
 }
 
 let mapStateToProps = (state) => {
   return {
-          users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+    users: state.usersPage.users,
+    pageSize: state.usersPage.pageSize,
+    totalUsersCount: state.usersPage.totalUsersCount,
+    currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress
   };
 
 };
 
 
-        export default compose(
-        withAuthRedirect,
-        connect(mapStateToProps, {
-          follow,
-          unfollow,
-          toggleFollowingProgress,
-          getUsers,
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    toggleFollowingProgress,
+    getUsers,
   }
-        ))(UsersContainer)
+  ))(UsersContainer)
 
 
 
