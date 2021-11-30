@@ -21,7 +21,23 @@ const Login = () => (
                 }, 500)
             }}
         >
-            {() => <div>Foo</div>}
+            {({ isSubmitting }) => <Form>
+                <div className="row">
+                    <div className="col">
+                        <Field name="name" type="text" />
+                    </div>
+                    <div className="col">
+                        <Field name="email" type="email" />
+
+                    </div>
+                    <div className="col">
+                        <button type="button">X</button>
+                    </div>
+                </div>
+                <button type="submit" disabled={isSubmitting}>Invite</button>
+                <button type="submit" disabled={isSubmitting}>AddFriend</button>
+
+            </Form>}
         </Formik>
     </div>
 )
