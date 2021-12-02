@@ -1,0 +1,21 @@
+.formik {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.form {
+  padding: 10px 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.46);
+}
+.form > * {
+  margin-bottom: 20px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.error {
+  color: #ff0000;
+}
