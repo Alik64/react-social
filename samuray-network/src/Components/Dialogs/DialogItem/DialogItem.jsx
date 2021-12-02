@@ -5,7 +5,11 @@ import style from "../Dialogs.module.css";
 export default function DialogItem(props) {
   return (
     <div className={style.dialog}>
-      <NavLink to={"/dialogs/" + props.id} activeClassName={style.active}>
+      <NavLink to={"/dialogs/" + props.id} style={({ isActive }) => {
+        return {
+          color: isActive ? "goldenrod" : ""
+        };
+      }}>
         <img
           className={style.avatar}
           src={

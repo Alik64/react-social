@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import Profile from "./Profile";
 import { getUserProfile, getUserStatus, updateUserStatus } from "../../redux/profileReducer";
 import { connect } from "react-redux";
-import { withRouter } from "react-router"
+// import { withRouter } from "react-router"
 import { compose } from "redux";
-import { useParams, Outlet } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 
@@ -52,7 +52,7 @@ function ProfileContainer(props) {
 
     return () => {
       userId = 20866
-      console.log('did mount')
+
     }
   }, [id])
 
