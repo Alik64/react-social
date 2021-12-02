@@ -1,0 +1,39 @@
+.header {
+  grid-area: h;
+  background-color: #29487d;
+  color: #fefefe;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.loginBlock {
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+.logo {
+  position: relative;
+  top: 20px;
+  border-radius: 50%;
+  width: 70px;
+  padding: 10px 20px;
+}
+
+.logoDiv {
+  display: grid;
+  place-items: center;
+}
+
+.samourai {
+  font-weight: 700;
+  font-size: 22px;
+}
+.logo_samurai {
+  position: relative;
+  top: -44px;
+  left: 0;
+  width: 40px;
+}
