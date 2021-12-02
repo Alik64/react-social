@@ -2,7 +2,8 @@ import React from "react";
 import style from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import { Redirect, Route } from "react-router";
+import { } from "react-router";
+import { NavLink } from "react-router-dom";
 
 export default function Dialogs(props) {
   let state = props.dialogsPage;
@@ -29,7 +30,7 @@ export default function Dialogs(props) {
     props.updateNewMessageText(text);
   };
 
-  // if (!props.isAuth) return <Route to={"/login"} />
+  if (!props.isAuth) return <NavLink to={"/login"} />
   return (
     <div className={style.dialogs}>
       <div className={style.dialogs_items}>{dialogsElements}</div>

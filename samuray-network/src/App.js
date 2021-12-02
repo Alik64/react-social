@@ -21,8 +21,10 @@ function App(props) {
       <NavContainer />
       <div className="content">
         <Routes>
-          <Route path="/profile/:id" element={<ProfileContainer />} />
 
+          <Route path="profile" element={<ProfileContainer />} >
+            <Route path="/profile/:id" element={<ProfileContainer />} />
+          </Route>
           <Route path="/dialogs" element={<DialogsContainer />} />
           <Route path="/users" element={<UsersContainer />} />
           <Route path="/login" element={<LoginPage />} />

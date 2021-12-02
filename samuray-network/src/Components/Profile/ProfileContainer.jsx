@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import Profile from "./Profile";
 import { getUserProfile, getUserStatus, updateUserStatus } from "../../redux/profileReducer";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router"
 import { compose } from "redux";
-import { useParams } from "react-router-dom";
+import { useParams, Outlet } from "react-router-dom";
 
 
 
@@ -38,21 +38,23 @@ import { useParams } from "react-router-dom";
 
 function ProfileContainer(props) {
 
+  let id = useParams().id || 20866
 
-
-
-  let userId = useParams().id
+  // if (!id || null) {
+  //   id = 20866;
+  // }
 
   useEffect(() => {
-    if (!userId || null) {
-      userId = 20866;
+    let userId = id
 
-    }
+    props.getUserProfile(userId)
+    props.getUserStatus(userId)
+
     return () => {
-      props.getUserProfile(userId)
-      props.getUserStatus(userId)
+      userId = 20866
+      console.log('did mount')
     }
-  }, [])
+  }, [id])
 
 
 
@@ -88,6 +90,6 @@ let mapStateToProps = (state) => ({
 
 export default compose(
   connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus }),
-  // withRouter,
+  // withRouter
   // withAuthRedirect
 )(ProfileContainer)
