@@ -32,11 +32,11 @@ export default function Login(props) {
                     <h1>Login</h1>
                     <div className={style.field}>
                         <Field type="text" id="login" name='login' placeholder="Login" autoComplete="your-login"></Field>
-                        <ErrorMessage name='login' className={style.error} />
+                        <ErrorMessage name='login' component='div' className="error" />
                     </div>
                     <div className={style.field}>
                         <Field type="password" id="password" name='password' placeholder="Your password" autoComplete="current-password"></Field>
-                        <ErrorMessage name='password' className={style.error} />
+                        <ErrorMessage name='password' component='div' className="error" />
                     </div>
                     <div >
                         <Field type="checkbox" id="remember" name="remember" /> <span>Remember me</span>
