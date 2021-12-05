@@ -10,7 +10,8 @@ const initialValues = {
 }
 const onSubmit = (values, onSubmitProps) => {
     console.log('Form data', values)
-
+    console.log('SUbmitProps', onSubmitProps)
+    onSubmitProps.setSubmitting(true)
 }
 
 const validationSchema = Yup.object({
