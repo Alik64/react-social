@@ -6,10 +6,11 @@ import style from "./Login.module.css"
 const initialValues = {
     login: "",
     password: "",
-    remember: true
+    rememberMe: true
 }
 const onSubmit = (values, onSubmitProps) => {
-    console.log(values)
+    console.log('Form data', values)
+
 }
 
 const validationSchema = Yup.object({
@@ -40,7 +41,7 @@ export default function Login(props) {
                                 <ErrorMessage name='password' component='div' className="error" />
                             </div>
                             <div >
-                                <Field type="checkbox" id="remember" name="remember" /> <span>Remember me</span>
+                                <Field type="checkbox" id="rememberMe" name="rememberMe" /> <span>Remember me</span>
                             </div>
                             <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>Sign in</button>
 
