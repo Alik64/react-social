@@ -23,14 +23,16 @@ export default function Dialogs(props) {
     <Message msg={message.msg} key={message.id} />
   ));
 
-  const addMessage = () => {
-    props.sendMessage();
+  const addMessage = (values) => {
+    props.sendMessage(values);
   };
 
   const onMessageChange = (e) => {
     let text = e.target.value;
     props.updateNewMessageText(text);
   };
+
+
 
   if (!props.isAuth) return <Navigate to={"/login"} />
   return (
@@ -40,7 +42,7 @@ export default function Dialogs(props) {
       <div className={style.messages}>
         <div>{messagesElements}</div>
         <div className={style.newMessage}>
-          <AddMessageForm />
+          <AddMessageForm sendMessage={addMessage} />
           {/* <div>
             <textarea
               onChange={onMessageChange}
