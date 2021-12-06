@@ -5,13 +5,13 @@ import FormikControl from "../FormControl/FormikControl";
 
 function AddMessageForm(props) {
     const initialValues = {
-        newMessageBody: '',
+        newMessageText: '',
     }
     const validationSchema = Yup.object({
-        newMessageBody: Yup.string()
+        newMessageText: Yup.string()
     })
     const onSubmit = values => {
-        props.sendMessage(values.newMessageBody)
+        props.sendMessage(values.newMessageText)
     }
 
     return (
