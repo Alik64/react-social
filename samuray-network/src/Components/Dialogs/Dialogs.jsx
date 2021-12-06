@@ -42,7 +42,7 @@ export default function Dialogs(props) {
       <div className={style.messages}>
         <div>{messagesElements}</div>
         <div className={style.newMessage}>
-          <AddMessageForm sendMessage={addMessage} />
+          <AddMessageForm addMessage={addMessage} />
           {/* <div>
             <textarea
               onChange={onMessageChange}

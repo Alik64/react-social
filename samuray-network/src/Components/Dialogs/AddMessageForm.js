@@ -11,7 +11,7 @@ function AddMessageForm(props) {
         newMessageText: Yup.string()
     })
     const onSubmit = values => {
-        props.sendMessage(values.newMessageText)
+        props.addMessage(values.newMessageText)
     }
 
     return (
@@ -24,7 +24,7 @@ function AddMessageForm(props) {
                     <FormikControl
                         control='textarea'
                         label='New message'
-                        name='newMessageBody'
+                        name='newMessageText'
                         placeholder='Enter your message'
                     />
                     <button type='submit'>Send</button>
