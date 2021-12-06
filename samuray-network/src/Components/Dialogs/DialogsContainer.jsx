@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {
   newMessageActionCreator,
-  updateNewMessageTextActionCreator,
+
 } from "../../redux/dialogsReducer";
 import Dialogs from "./Dialogs";
 
@@ -23,9 +23,7 @@ let mapDispatchToProps = (dispatch) => {
     sendMessage: (newMessageText) => {
       dispatch(newMessageActionCreator(newMessageText));
     },
-    updateNewMessageText: (text) => {
-      dispatch(updateNewMessageTextActionCreator(text));
-    },
+
 
   };
 };
