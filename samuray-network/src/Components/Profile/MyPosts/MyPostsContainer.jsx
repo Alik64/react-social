@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import {
   addPostActionCreator,
-  updateNewPostActionCreator,
+
 } from "../../../redux/profileReducer";
 
 import MyPosts from "./MyPosts";
@@ -19,10 +19,7 @@ let mapDispatchToProps = (dispatch) => {
     addPost: (newPostText) => {
       dispatch(addPostActionCreator(newPostText));
     },
-    updateNewPostText: (text) => {
-      let action = updateNewPostActionCreator(text);
-      dispatch(action);
-    },
+
   };
 };
 

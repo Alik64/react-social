@@ -21,7 +21,6 @@ export default function MyPosts(props) {
     <div className={style.postBlock}>
       <h3>My posts</h3>
       <AddPostForm addPost={onAddPost} />
-
       <div className={style.posts}>{postElements}</div>
     </div>
   );
