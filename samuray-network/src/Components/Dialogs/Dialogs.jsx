@@ -2,8 +2,11 @@ import React from "react";
 import style from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import { } from "react-router";
-import { NavLink } from "react-router-dom";
+import { Navigate } from "react-router";
+import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
+import FormikControl from "../FormControl/FormikControl";
+
 
 export default function Dialogs(props) {
   let state = props.dialogsPage;
@@ -30,7 +33,7 @@ export default function Dialogs(props) {
     props.updateNewMessageText(text);
   };
 
-  if (!props.isAuth) return <NavLink to={"/login"} />
+  if (!props.isAuth) return <Navigate to={"/login"} />
   return (
     <div className={style.dialogs}>
       <div className={style.dialogs_items}>{dialogsElements}</div>
@@ -38,7 +41,7 @@ export default function Dialogs(props) {
       <div className={style.messages}>
         <div>{messagesElements}</div>
         <div className={style.newMessage}>
-          <div>
+          {/* <div>
             <textarea
               onChange={onMessageChange}
               value={state.newMessageText}
@@ -47,7 +50,7 @@ export default function Dialogs(props) {
           </div>
           <div>
             <button onClick={addMessage}>New message</button>
-          </div>
+          </div> */}
           <pre>{JSON.stringify(props, null, 2)}</pre>
         </div>
       </div>
