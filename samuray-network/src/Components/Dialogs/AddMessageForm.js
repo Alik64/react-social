@@ -3,15 +3,15 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from "../FormControl/FormikControl";
 
-function AddMessageForm() {
+function AddMessageForm(props) {
     const initialValues = {
-        message: '',
+        newMessageBody: '',
     }
     const validationSchema = Yup.object({
-        message: Yup.string()
+        newMessageBody: Yup.string()
     })
     const onSubmit = values => {
-        console.log('Form data', values)
+        props.sendMessage(values.newMessageBody)
     }
 
     return (
@@ -24,7 +24,8 @@ function AddMessageForm() {
                     <FormikControl
                         control='textarea'
                         label='New message'
-                        name='message'
+                        name='newMessageBody'
+                        placeholder='Enter your message'
                     />
                     <button type='submit'>Send</button>
                 </Form>
