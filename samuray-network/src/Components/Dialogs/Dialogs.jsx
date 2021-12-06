@@ -27,10 +27,7 @@ export default function Dialogs(props) {
     props.sendMessage(values);
   };
 
-  const onMessageChange = (e) => {
-    let text = e.target.value;
-    props.updateNewMessageText(text);
-  };
+
 
 
 
