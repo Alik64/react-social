@@ -3,9 +3,8 @@ import style from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import { Navigate } from "react-router";
-import { Formik, Form } from 'formik'
-import * as Yup from 'yup'
-import FormikControl from "../FormControl/FormikControl";
+import AddMessageForm from "./AddMessageForm";
+
 
 
 export default function Dialogs(props) {
@@ -41,6 +40,7 @@ export default function Dialogs(props) {
       <div className={style.messages}>
         <div>{messagesElements}</div>
         <div className={style.newMessage}>
+          <AddMessageForm />
           {/* <div>
             <textarea
               onChange={onMessageChange}
@@ -57,3 +57,4 @@ export default function Dialogs(props) {
     </div>
   );
 }
+
