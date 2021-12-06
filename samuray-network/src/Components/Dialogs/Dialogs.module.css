@@ -31,3 +31,7 @@
   width: 50px;
   border-radius: 50%;
 }
+.newMessage {
+  display: flex;
+  flex-direction: column;
+}
