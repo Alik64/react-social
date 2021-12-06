@@ -40,17 +40,8 @@ export default function Dialogs(props) {
         <div>{messagesElements}</div>
         <div className={style.newMessage}>
           <AddMessageForm addMessage={addMessage} />
-          {/* <div>
-            <textarea
-              onChange={onMessageChange}
-              value={state.newMessageText}
-              placeholder="Enter your message"
-            ></textarea>
-          </div>
-          <div>
-            <button onClick={addMessage}>New message</button>
-          </div> */}
-          <pre>{JSON.stringify(props, null, 2)}</pre>
+
+          {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
         </div>
       </div>
     </div>
