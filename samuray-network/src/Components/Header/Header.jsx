@@ -14,9 +14,9 @@ export default function Header(props) {
       </div>
       <h3>React Samourai  <span className={style.samourai}> 侍 </span> </h3>
       <div className={style.loginBlock}>
-        {props.isAuth ?
-
-          props.login : <NavLink to={"/login"}>Login </NavLink>}
+        {props.isAuth
+          ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
+          : <NavLink to={"/login"}>Login </NavLink>}
       </div>
     </header>
   );
