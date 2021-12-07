@@ -2,62 +2,27 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import style from "./Login.module.css"
+import { connect } from "react-redux";
+import { login } from "../../redux/authReducer";
+import LoginForm from "./LoginForm";
 
-const initialValues = {
-    email: "",
-    password: "",
-    rememberMe: false
-}
+
 const onSubmit = (values, onSubmitProps) => {
     console.log('Form data', values)
-    console.log('SUbmitProps', onSubmitProps)
-    onSubmitProps.setSubmitting(true)
+
+    // onSubmitProps.setSubmitting(true)
 }
 
-const validationSchema = Yup.object({
-    email: Yup.string().required('Required').email('Invalid email format'),
-    password: Yup.string().required('Required')
-})
 
 
 
-export default function Login(props) {
+const Login = (props) => {
     return (
         <div className={style.formik}>
-            <Formik
+            <LoginForm />
 
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-                validateOnChange={false}
-                validateOnMount
-            >
-
-                {formik => {
-                    return (
-                        <Form className={style.form}>
-                            <h1>Login</h1>
-                            <div className={style.field}>
-                                <Field type="email" id="email" name='email' placeholder="E-mail"></Field>
-                                <ErrorMessage name='email' component='div' className="error" />
-                            </div>
-                            <div className={style.field}>
-                                <Field type="password" id="password" name='password' placeholder="Your password" autoComplete="current-password"></Field>
-                                <ErrorMessage name='password' component='div' className="error" />
-                            </div>
-                            <div >
-                                <Field type="checkbox" id="rememberMe" name="rememberMe" /> <span>Remember me</span>
-                            </div>
-                            <button type="submit" disabled={!formik.isValid}>Sign in</button>
-
-
-
-                        </Form>
-                    )
-                }}
-
-
-            </Formik>
         </div>
     )
 }
+
+export default connect(null, { login })(Login)
