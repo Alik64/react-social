@@ -6,12 +6,14 @@ import FormikControl from '../../FormControl/FormikControl'
 
 
 function AddPostForm(props) {
+
     const initialValues = {
         newPostText: '',
     }
     const validationSchema = Yup.object({
         newPostText: Yup.string()
     })
+
     const onSubmit = values => {
         props.addPost(values.newPostText)
     }
@@ -20,15 +22,19 @@ function AddPostForm(props) {
         <Formik
             initialValues={initialValues}
             onSubmit={onSubmit}
-            validationSchema={validationSchema}>
+            validationSchema={validationSchema}
+            validateOnMount
+        >
             {formik => {
+                console.log(formik)
+
                 return <Form>
                     <FormikControl
                         control='textarea'
                         name='newPostText'
                         placeholder='Enter your text'
                     />
-                    <button type='submit'>New post</button>
+                    <button type='submit' disabled={!formik.isValid || !formik.dirty}>New post</button>
                 </Form>
             }}
 
