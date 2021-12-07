@@ -12,8 +12,8 @@ function LoginForm(props) {
         password: "",
         rememberMe: false
     }
-    const onSubmit = (values, { setSubmitting, setFieldError, setStatus }) => {
-        props.onSubmit(values, setSubmitting, setFieldError, setStatus)
+    const onSubmit = (values, { setSubmitting, setStatus }) => {
+        props.onSubmit(values, setSubmitting, setStatus)
 
     }
 
@@ -33,7 +33,7 @@ function LoginForm(props) {
 
             {formik => {
 
-
+                console.log(formik.status)
                 return (
                     <Form className={style.form}>
                         <h1>Login</h1>
@@ -44,8 +44,6 @@ function LoginForm(props) {
                             id='email'
                             placeholder='E-mail'
                         />
-                        <div>{formik.status}</div>
-
                         <FormikControl
                             control='input'
                             type='password'
@@ -56,6 +54,7 @@ function LoginForm(props) {
                         <div >
                             <Field type="checkbox" id="rememberMe" name="rememberMe" /> <span>Remember me</span>
                         </div>
+                        <div className="error">{formik.status}</div>
                         <button type="submit" disabled={!formik.isValid}>Sign in</button>
 
 

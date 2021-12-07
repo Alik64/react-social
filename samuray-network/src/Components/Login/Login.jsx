@@ -12,9 +12,11 @@ import { Navigate } from "react-router";
 
 const Login = (props) => {
 
-    const onSubmit = (formData, setSubmitting, setFieldError, setStatus) => {
+    const onSubmit = (formData, setSubmitting, setStatus) => {
         console.log('Form data', formData)
-        props.login(formData.email, formData.password, formData.rememberMe, setSubmitting, setFieldError, setStatus)
+        console.log('SetStatus', setStatus)
+
+        props.login(formData.email, formData.password, formData.rememberMe, setStatus)
 
         setSubmitting(false)
     }
