@@ -12,10 +12,9 @@ function LoginForm(props) {
         password: "",
         rememberMe: false
     }
-    const onSubmit = values => {
+    const onSubmit = (values, { setSubmitting, setFieldError, setStatus }) => {
         props.onSubmit(values)
 
-        // onSubmitProps.setSubmitting(true)
     }
 
     const validationSchema = Yup.object({
@@ -33,6 +32,8 @@ function LoginForm(props) {
         >
 
             {formik => {
+
+                console.log(formik)
                 return (
                     <Form className={style.form}>
                         <h1>Login</h1>
