@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import style from "./Login.module.css"
 
 const initialValues = {
-    login: "",
+    email: "",
     password: "",
     rememberMe: true
 }
@@ -15,7 +15,7 @@ const onSubmit = (values, onSubmitProps) => {
 }
 
 const validationSchema = Yup.object({
-    login: Yup.string().required('Required'),
+    email: Yup.string().required('Required').email('Invalid email format'),
     password: Yup.string().required('Required')
 })
 
@@ -29,6 +29,7 @@ export default function Login(props) {
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
+                validateOnChange={false}
                 validateOnMount
             >
 
@@ -37,8 +38,8 @@ export default function Login(props) {
                         <Form className={style.form}>
                             <h1>Login</h1>
                             <div className={style.field}>
-                                <Field type="text" id="login" name='login' placeholder="Login" autoComplete="your-login"></Field>
-                                <ErrorMessage name='login' component='div' className="error" />
+                                <Field type="email" id="email" name='email' placeholder="E-mail"></Field>
+                                <ErrorMessage name='email' component='div' className="error" />
                             </div>
                             <div className={style.field}>
                                 <Field type="password" id="password" name='password' placeholder="Your password" autoComplete="current-password"></Field>
