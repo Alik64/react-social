@@ -38,11 +38,11 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 function ProfileContainer(props) {
 
-  let id = useParams().id || 20866
+  let id = useParams().id
 
-  // if (!id || null) {
-  //   id = 20866;
-  // }
+  if (!id) {
+    id = props.authorisedUserId;
+  }
 
   useEffect(() => {
     let userId = id
@@ -79,7 +79,8 @@ function ProfileContainer(props) {
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
-  isAuth: state.auth.isAuth
+  isAuth: state.auth.isAuth,
+  authorisedUserId: state.auth.userId
 });
 
 // let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
