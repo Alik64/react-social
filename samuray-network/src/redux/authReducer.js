@@ -32,7 +32,7 @@ const authReducer = (state = initialState, action) => {
 
 // action Creators
 
-export const setAuthUserData = (userId, email, login) => ({ type: SET_USER_DATA, payload: { userId, email, login } });
+export const setAuthUserData = (userId, email, login, isAuth) => ({ type: SET_USER_DATA, payload: { userId, email, login, isAuth } });
 
 // thunk creators
 
@@ -40,7 +40,7 @@ export const getAuthUserData = () => (dispatch) => {
   authAPI.me().then((response) => {
     if (response.data.resultCode === 0) {
       let { id, email, login } = response.data.data;
-      dispatch(setAuthUserData(id, email, login))
+      dispatch(setAuthUserData(id, email, login, true))
     }
   });
 }
@@ -57,7 +57,7 @@ export const logout = () => (dispatch) => {
   authAPI.logout()
     .then((response) => {
       if (response.data.resultCode === 0) {
-        dispatch(getAuthUserData())
+        dispatch(dispatch(setAuthUserData(null, null, null, false)))
       }
     });
 }
