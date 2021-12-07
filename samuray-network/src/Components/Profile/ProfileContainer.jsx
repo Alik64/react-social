@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 // import { withRouter } from "react-router"
 import { compose } from "redux";
 import { useParams } from "react-router-dom";
+import { Navigate } from "react-router";
 
 
 
@@ -60,7 +61,7 @@ function ProfileContainer(props) {
 
 
 
-
+  if (!props.isAuth) return <Navigate to={"/login"} />
 
   return (
     <div>
@@ -78,7 +79,8 @@ function ProfileContainer(props) {
 
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
+  isAuth: state.auth
 });
 
 // let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
