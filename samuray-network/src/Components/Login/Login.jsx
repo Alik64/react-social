@@ -28,7 +28,10 @@ export default function Login(props) {
 
                 initialValues={initialValues}
                 onSubmit={onSubmit}
-                validationSchema={validationSchema}>
+                validationSchema={validationSchema}
+                validateOnMount
+            >
+
                 {formik => {
                     return (
                         <Form className={style.form}>
@@ -44,7 +47,7 @@ export default function Login(props) {
                             <div >
                                 <Field type="checkbox" id="rememberMe" name="rememberMe" /> <span>Remember me</span>
                             </div>
-                            <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>Sign in</button>
+                            <button type="submit" disabled={!formik.isValid}>Sign in</button>
 
 
 
