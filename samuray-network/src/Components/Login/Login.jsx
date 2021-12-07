@@ -7,20 +7,21 @@ import { login } from "../../redux/authReducer";
 import LoginForm from "./LoginForm";
 
 
-const onSubmit = (values, onSubmitProps) => {
-    console.log('Form data', values)
 
-    // onSubmitProps.setSubmitting(true)
-}
 
 
 
 
 const Login = (props) => {
+
+    const onSubmit = (formData) => {
+        console.log('Form data', formData)
+
+        // onSubmitProps.setSubmitting(true)
+    }
     return (
         <div className={style.formik}>
-            <LoginForm />
-
+            <LoginForm onSubmit={onSubmit} />
         </div>
     )
 }
