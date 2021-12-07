@@ -6,7 +6,7 @@ import style from "./Login.module.css"
 const initialValues = {
     email: "",
     password: "",
-    rememberMe: true
+    rememberMe: false
 }
 const onSubmit = (values, onSubmitProps) => {
     console.log('Form data', values)
