@@ -31,7 +31,7 @@ export default function Dialogs(props) {
 
 
 
-  if (!props.isAuth) return <Navigate to={"/login"} />
+  if (!props.isAuth) return <Navigate to={"/dialogs"} />
   return (
     <div className={style.dialogs}>
       <div className={style.dialogs_items}>{dialogsElements}</div>
