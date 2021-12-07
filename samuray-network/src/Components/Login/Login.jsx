@@ -5,8 +5,6 @@ import { login } from "../../redux/authReducer";
 import LoginForm from "./LoginForm";
 import { Navigate } from "react-router";
 
-import { compose } from "redux";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
 

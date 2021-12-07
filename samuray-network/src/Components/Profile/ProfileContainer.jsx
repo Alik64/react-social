@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import Profile from "./Profile";
 import { getUserProfile, getUserStatus, updateUserStatus } from "../../redux/profileReducer";
 import { connect } from "react-redux";
-// import { withRouter } from "react-router"
 import { compose } from "redux";
 import { useParams } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
