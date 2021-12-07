@@ -5,7 +5,8 @@ import { login } from "../../redux/authReducer";
 import LoginForm from "./LoginForm";
 import { Navigate } from "react-router";
 
-
+import { compose } from "redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
 
@@ -20,7 +21,7 @@ const Login = (props) => {
     }
 
     if (props.isAuth) {
-        <Navigate to={"/profile"} />
+        return <Navigate to={"/profile"} />
     }
     return (
         <div className={style.formik}>
@@ -29,4 +30,9 @@ const Login = (props) => {
     )
 }
 
-export default connect(null, { login })(Login)
+let mapStateToProps = (state) => ({
+
+    isAuth: state.auth.isAuth
+});
+export default
+    connect(mapStateToProps, { login })(Login);

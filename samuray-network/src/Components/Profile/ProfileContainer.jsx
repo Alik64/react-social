@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 // import { withRouter } from "react-router"
 import { compose } from "redux";
 import { useParams } from "react-router-dom";
-import { Navigate } from "react-router";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
 
@@ -61,11 +61,11 @@ function ProfileContainer(props) {
 
 
 
-  if (!props.isAuth) return <Navigate to={"/login"} />
+
 
   return (
     <div>
-      <Profile props={props} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
+      <Profile props={props} isAuth={props.isAuth} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
     </div>
   )
 }
@@ -80,7 +80,7 @@ function ProfileContainer(props) {
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
-  isAuth: state.auth
+  isAuth: state.auth.isAuth
 });
 
 // let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
@@ -93,5 +93,5 @@ let mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus }),
   // withRouter
-  // withAuthRedirect
+  withAuthRedirect
 )(ProfileContainer)
