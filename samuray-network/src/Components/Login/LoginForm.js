@@ -13,7 +13,7 @@ function LoginForm(props) {
         rememberMe: false
     }
     const onSubmit = (values, { setSubmitting, setFieldError, setStatus }) => {
-        props.onSubmit(values)
+        props.onSubmit(values, setSubmitting, setFieldError, setStatus)
 
     }
 
@@ -33,7 +33,7 @@ function LoginForm(props) {
 
             {formik => {
 
-                console.log(formik)
+
                 return (
                     <Form className={style.form}>
                         <h1>Login</h1>
@@ -44,6 +44,7 @@ function LoginForm(props) {
                             id='email'
                             placeholder='E-mail'
                         />
+                        <div>{formik.status}</div>
 
                         <FormikControl
                             control='input'
