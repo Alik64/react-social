@@ -15,6 +15,7 @@ import ProfileContainer from "./Components/Profile/ProfileContainer";
 import UsersContainer from "./Components/UsersContainer/UsersContainer";
 import { initializeApp } from "../src/redux/appReducer"
 import { connect } from "react-redux";
+import Preloader from "./Components/commun/Preloader/Preloader";
 
 class App extends Component {
 
@@ -25,6 +26,11 @@ class App extends Component {
   }
 
   render() {
+
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+
     return (
       <div className="app-wrapper">
         <HeaderContainer />

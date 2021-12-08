@@ -26,7 +26,7 @@ function AddPostForm(props) {
             validateOnMount
         >
             {formik => {
-                console.log(formik)
+                // console.log(formik)
 
                 return <Form>
                     <FormikControl

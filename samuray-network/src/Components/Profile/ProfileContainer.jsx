@@ -51,7 +51,7 @@ function ProfileContainer(props) {
     props.getUserStatus(userId)
 
     return () => {
-      userId = 20866
+      // userId = 20866
 
     }
   }, [id])
