@@ -13,14 +13,14 @@ import NavContainer from "./Components/Nav/NavContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 // import Settings from "./Components/Settings/Settings";
 import UsersContainer from "./Components/UsersContainer/UsersContainer";
-import { getAuthUserData } from "../src/redux/authReducer"
+import { initializeApp } from "../src/redux/appReducer"
 import { connect } from "react-redux";
 
 class App extends Component {
 
   componentDidMount() {
 
-    this.props.getAuthUserData()
+    this.props.initializeApp()
 
   }
 
@@ -45,5 +45,5 @@ class App extends Component {
   }
 }
 
-export default connect(null, { getAuthUserData })(App);
+export default connect(null, { initializeApp })(App);
 
