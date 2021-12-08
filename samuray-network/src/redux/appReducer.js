@@ -31,9 +31,13 @@ export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
 // thunk creators
 
 export const initializeApp = () => (dispatch) => {
-  dispatch(getAuthUserData())
+  let promise = dispatch(getAuthUserData())
+  debugger
 
-  dispatch(initializedSuccess())
+  promise.then(() => {
+    dispatch(initializedSuccess())
+  })
+
 }
 
 
