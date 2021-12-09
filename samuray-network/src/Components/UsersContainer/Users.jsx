@@ -24,6 +24,7 @@ export default function Users(props) {
   }
 
   return (
+
     <div>
       {/* Pagination */}
       <div className={style.pagination}>
@@ -44,6 +45,7 @@ export default function Users(props) {
       </div>
       {/*Users */}
       <div className={style.wrapper}>
+
         {props.users.map((u) => (
           <div key={u.id}>
             <div>
