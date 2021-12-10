@@ -34,7 +34,7 @@ export const getUsersSelector = (state) => {
 }
 
 
-export const getUsersSuperSelector = createSelector(getUsers, (users) => {
+export const getUsersSuperSelector = createSelector(getUsers, getIsFetching, (users, isFetching) => {
 
     return users.filter(u => true)
 })
