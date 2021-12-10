@@ -1,10 +1,15 @@
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function ProfileStatusWithHooks(props) {
     const [editMode, setEditMode] = useState(false)
-    const [status, setStatus] = useState("")
+    const [status, setStatus] = useState(props.status)
+
+    useEffect(() => {
+        setStatus(props.status)
+
+    }, [props.status])
 
     const activatedMode = () => {
         setEditMode(true)
@@ -22,7 +27,7 @@ export default function ProfileStatusWithHooks(props) {
         <div>
             {editMode
                 ? <div><input autoFocus={true} onChange={onStatusChange} onBlur={desactivatedMode} type="text" value={status} /></div>
-                : <div><span onClick={activatedMode}>{props.status}</span></div>}
+                : <div><span onClick={activatedMode}>{props.status || "Enter your status"}</span></div>}
 
         </div>
     )
