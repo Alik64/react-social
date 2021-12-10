@@ -44,27 +44,4 @@ export default class ProfileStatus extends Component {
     }
 }
 
-// Functional coponent
 
-// import React, { useState } from 'react'
-
-// export default function ProfileStatus(props) {
-//     const [editMode, setEditMode] = useState(false)
-
-//     const activatedMode = () => {
-//         setEditMode(true)
-//     }
-//     const desactivatedMode = () => {
-//         setEditMode(false)
-//     }
-
-
-//     return (
-//         <div>
-//             {editMode
-//                 ? <div><input autoFocus={true} onBlur={() => desactivatedMode()} type="text" value={props.status} /></div>
-//                 : <div><span onClick={() => activatedMode()}>{props.status}</span></div>}
-
-//         </div>
-//     )
-// }
