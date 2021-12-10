@@ -38,23 +38,23 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 function ProfileContainer(props) {
 
+  const { getUserProfile, getUserStatus, authorisedUserId } = props
   let id = useParams().id
 
   if (!id) {
-    id = props.authorisedUserId;
+    id = authorisedUserId;
   }
+
+
 
   useEffect(() => {
     let userId = id
 
-    props.getUserProfile(userId)
-    props.getUserStatus(userId)
+    getUserProfile(userId)
+    getUserStatus(userId)
 
-    return () => {
-      // userId = 20866
 
-    }
-  }, [id])
+  }, [id, getUserProfile, getUserStatus])
 
 
 
