@@ -25,16 +25,11 @@ export const getFollowingInProgress = (state) => {
 
 // Utilisation de RESELECT
 
-export const getUsers = (state) => {
+const getUsers = (state) => {
     return state.usersPage.users
 }
 
-export const getUsersSelector = (state) => {
-    return getUsers(state).filter(u => true)
-}
-
-
-export const getUsersSuperSelector = createSelector(getUsers, getIsFetching, (users, isFetching) => {
+export const getUsersSuperSelector = createSelector(getUsers, (users) => {
 
     return users.filter(u => true)
 })
