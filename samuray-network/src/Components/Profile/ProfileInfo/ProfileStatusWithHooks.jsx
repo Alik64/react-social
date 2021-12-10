@@ -1,27 +1,4 @@
-// import React, { useState } from 'react'
 
-// const ProfileStatusWithHooks = (props) => {
-
-//     const [editMode, setEditMode] = useState(false)
-//     return (
-//         <div>
-
-//             {
-//                 <div><span >{props.status || "Enter your status"} </span></div>
-//             }
-//             {false &&
-//                 <div><input autoFocus={true} type="text" /></div>
-//             }
-
-
-//         </div>
-//     )
-
-// }
-
-// export default ProfileStatusWithHooks
-
-// Functional coponent
 
 import React, { useState } from 'react'
 
