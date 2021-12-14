@@ -22,7 +22,7 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 //     this.props.getUserProfile(userId)
 //     this.props.getUserStatus(userId)
-//   }
+//   } 
 
 //   render() {
 
