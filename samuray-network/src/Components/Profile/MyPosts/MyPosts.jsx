@@ -29,6 +29,10 @@ import Post from "./Post/Post";
 
 export default class MyPosts extends PureComponent {
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps !== this.props || nextState !== this.state
+  // }
+
 
   render() {
 
