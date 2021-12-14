@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import AddPostForm from "./AddPostForm";
 
 import style from "./MyPosts.module.css";
@@ -27,15 +27,11 @@ import Post from "./Post/Post";
 // }
 
 
-export default class MyPosts extends Component {
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps !== this.props
-  }
+export default class MyPosts extends PureComponent {
 
 
   render() {
-    console.log("RENDER YO")
+
 
     let postElements = this.props.posts.map((post) => (
       <Post key={post.id} message={post.message} likesCount={post.likesCount} />
