@@ -1,4 +1,4 @@
-import profileReducer, { addPostActionCreator } from "./profileReducer";
+import profileReducer, { addPostActionCreator, deletePost } from "./profileReducer";
 
 let state = {
   posts: [
@@ -34,7 +34,7 @@ it('message of new post should be correct', () => {
   expect(newState.posts[0].message).toBe('samuray')
 })
 
-it('after deleting, length of messages should decrement', () => {
+it('after deleting, length of posts should decrement', () => {
   // 1. Test data
   let action = deletePost(1)
 
