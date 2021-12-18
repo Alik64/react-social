@@ -33,3 +33,15 @@ it('message of new post should be correct', () => {
 
   expect(newState.posts[0].message).toBe('samuray')
 })
+
+it('after deleting, length of messages should decrement', () => {
+  // 1. Test data
+  let action = deletePost(1)
+
+  //2. action
+  let newState = profileReducer(state, action)
+  //3. expectation 
+
+
+  expect(newState.posts.length).toBe(3)
+})
