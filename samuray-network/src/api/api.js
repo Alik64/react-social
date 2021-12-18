@@ -14,18 +14,25 @@ const instance = axios.create({
 
 
 export const usersAPI = {
-    requestUsers(currentPage = 1, pageSize = 10) {
-        return instance.get(
+
+
+    async requestUsers(currentPage = 1, pageSize = 10) {
+        const response = await instance.get(
             `users?page=${currentPage}&count=${pageSize}`)
-            .then(response => response.data)
+        return response.data
     },
-    follow(id) {
-        return instance.post(`follow/${id}`).then(response => response.data)
+
+    async follow(id) {
+        const response = await instance.post(`follow/${id}`);
+        return response.data;
     },
-    unfollow(id) {
-        return instance.delete(
-            `follow/${id}`).then(response => response.data)
-    },
+
+    async unfollow(id) {
+        const response = await instance.delete(`follow/${id}`)
+        return response.data
+    }
+
+    ,
     getProfile(id) {
         console.warn('Obsolete method. Please use ProfileAPI')
         return profileAPI.getProfile(id)
