@@ -60,30 +60,27 @@ export const deletePost = (postId) => ({
 
 //thunk creators
 
-export const getUserProfile = (userId) => (dispatch) => {
+export const getUserProfile = (userId) => async (dispatch) => {
 
-  profileAPI.getProfile(userId).then((response) => {
-    dispatch(setUserProfile(response.data));
-  });
-}
-export const getUserStatus = (userId) => (dispatch) => {
+  const response = await profileAPI.getProfile(userId)
+  dispatch(setUserProfile(response.data));
 
-  profileAPI.getStatus(userId)
-    .then((response) => {
-
-      dispatch(setStatus(response.data));
-    });
 }
 
+export const getUserStatus = (userId) => async (dispatch) => {
 
-export const updateUserStatus = (status) => (dispatch) => {
+  const response = await profileAPI.getStatus(userId)
+  dispatch(setStatus(response.data));
 
-  profileAPI.updateStatus(status).then((response) => {
-    if (response.data.resultCode === 0) {
-      dispatch(setStatus(status));
-    }
+}
 
-  });
+
+export const updateUserStatus = (status) => async (dispatch) => {
+
+  const response = await profileAPI.updateStatus(status)
+  if (response.data.resultCode === 0) {
+    dispatch(setStatus(status));
+  }
 }
 
 
