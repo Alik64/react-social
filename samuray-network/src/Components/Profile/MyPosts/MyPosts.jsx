@@ -6,9 +6,7 @@ import Post from "./Post/Post";
 
 const MyPosts = props => {
 
-  let postElements = props.posts.map((post) => (
-    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
-  ));
+
 
 
 
@@ -16,6 +14,12 @@ const MyPosts = props => {
     props.addPost(values);
   };
 
+  const onDeletePost = (postId) => {
+    props.deletePost(postId)
+  }
+  let postElements = props.posts.map((post) => (
+    <Post profile={props.profile} postId={post.id} deletePost={onDeletePost} key={post.id} message={post.message} likesCount={post.likesCount} />
+  ));
 
   return (
     <div className={style.postBlock}>
