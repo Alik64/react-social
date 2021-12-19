@@ -35,8 +35,6 @@ function AddPostForm(props) {
                         placeholder='Enter your text'
                     />
                     <button type='submit' disabled={!formik.isValid || !formik.dirty}>New post</button>
-                    <button type='button'>Delete last post</button>
-
                 </Form>
             }}
 
