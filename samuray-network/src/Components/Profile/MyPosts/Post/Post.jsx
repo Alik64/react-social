@@ -11,7 +11,7 @@ export default function Post(props) {
 
   return (
     <div className={classes.item}>
-      <img src={userPhoto}
+      <img src={userPhoto} alt="user"
       />
       {props.message}
       <button onClick={() => onDeletePost(props.postId)}>Delete</button>
