@@ -1,7 +1,7 @@
 import { usersAPI } from "../api/api";
+// import { updateObjectInArray } from "../utils/object-helpers";
+const TOGGLE_FOLLOW = "TOGGLE_FOLLOW"
 
-const FOLLOW = "FOLLOW";
-const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
@@ -19,27 +19,18 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FOLLOW:
-      return {
-        ...state,
-        users: state.users.map((u) => {
-          if (u.id === action.userId) {
-            return { ...u, followed: true };
-          }
-          return u;
-        }),
-      };
 
-    case UNFOLLOW:
+
+    case TOGGLE_FOLLOW:
       return {
         ...state,
-        users: state.users.map((u) => {
-          if (u.id === action.userId) {
-            return { ...u, followed: false };
+        users: state.users.map(user => {
+          if (user.id === action.userId) {
+            return { ...user, followed: !user.followed }
           }
-          return u;
-        }),
-      };
+          return user
+        })
+      }
 
     case SET_USERS: {
       return { ...state, users: action.users };
@@ -69,8 +60,8 @@ const usersReducer = (state = initialState, action) => {
 };
 
 // action Creaters
-export const followSuccess = (userId) => ({ type: FOLLOW, userId });
-export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
+export const followSuccess = (userId) => ({ type: TOGGLE_FOLLOW, userId });
+export const unfollowSuccess = (userId) => ({ type: TOGGLE_FOLLOW, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
