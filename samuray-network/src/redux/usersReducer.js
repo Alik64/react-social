@@ -118,7 +118,7 @@ const followUnfollowFlow = async (dispatch, id, apiMethod, actionCreator) => {
 }
 export const follow = (id) => {
   return async (dispatch) => {
-    followUnfollowFlow(dispatch, id, usersAPI.follow.bind(usersAPI), followSuccess)
+    followUnfollowFlow(dispatch, id, usersAPI.follow.bind(usersAPI), followSuccess) // *voir commit pour refactoring
   }
 }
 
