@@ -2,48 +2,20 @@ import React from "react";
 import style from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import { NavLink } from "react-router-dom";
+import Paginator from "../commun/Paginator/Paginator";
 
 
-export default function Users(props) {
-  const PAGES_LENGTH = 10; // nombre max de page à afficher
-  const totalPagesCount = Math.ceil(props.totalUsersCount / props.pageSize); // Nb de pages total
+export default function Users({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }) {
 
-  const pagesCount =
-    totalPagesCount < PAGES_LENGTH ? totalPagesCount : PAGES_LENGTH;
-
-  const half = Math.floor(pagesCount / 2);
-
-  let startPage = props.currentPage - half;
-  if (startPage < 1) startPage = 1;
-  if (startPage + pagesCount > totalPagesCount)
-    startPage = totalPagesCount - pagesCount;
-
-  const pages = [];
-  for (let i = startPage; i < startPage + PAGES_LENGTH; i++) {
-    pages.push(i);
-  }
 
   return (
 
     <div>
-      {/* Pagination */}
-      <div className={style.pagination}>
-        {pages.map((page, index) => {
-          return (
-            <span
-              key={index}
-              className={`${style.page} ${props.currentPage === page && style.selectedPage
-                }`}
-              onClick={(e) => {
-                props.onPageChanged(page);
-              }}
-            >
-              {page}
-            </span>
-          );
-        })}
-      </div>
-      {/*Users */}
+
+      <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount}
+        pageSize={pageSize} onPageChanged={onPageChanged} />
+
+
       <div className={style.wrapper}>
 
         {props.users.map((u) => (
