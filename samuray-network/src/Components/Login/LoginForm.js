@@ -23,7 +23,6 @@ function LoginForm(props) {
     })
     return (
         <Formik
-
             initialValues={initialValues}
             onSubmit={onSubmit}
             validationSchema={validationSchema}

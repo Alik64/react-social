@@ -5,11 +5,6 @@ import { login } from "../../redux/authReducer";
 import LoginForm from "./LoginForm";
 import { Navigate } from "react-router";
 
-
-
-
-
-
 const Login = (props) => {
 
     const onSubmit = (formData, setSubmitting, setStatus) => {
