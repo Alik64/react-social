@@ -26,6 +26,13 @@ export default function Paginator({ totalUsersCount, pageSize, currentPage, onPa
 
 
     <div className={style.pagination}>
+      {currentPage > 6 ? <button onClick={(e) => {
+        onPageChanged(1);
+      }}>Start</button> : null}
+      {currentPage > 6 ? <button onClick={(e) => {
+        onPageChanged(currentPage - 1);
+      }}>Prev</button> : null}
+
       {pages.map((page, index) => {
         return (
           <span
@@ -39,8 +46,15 @@ export default function Paginator({ totalUsersCount, pageSize, currentPage, onPa
             {page}
           </span>
         );
-      })}
-    </div>
 
+      })}
+
+      <button onClick={(e) => {
+        onPageChanged(currentPage + 1);
+      }}>Next</button>
+      <button onClick={(e) => {
+        onPageChanged(totalPagesCount);
+      }}>End</button>
+    </div>
   );
 }
