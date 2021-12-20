@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
@@ -8,8 +8,9 @@ import NavContainer from "./Components/Nav/NavContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import UsersContainer from "./Components/UsersContainer/UsersContainer";
 import { initializeApp } from "../src/redux/appReducer"
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import Preloader from "./Components/commun/Preloader/Preloader";
+import store from "./redux/redux-store";
 
 class App extends Component {
 
@@ -46,5 +47,17 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
-export default connect(mapStateToProps, { initializeApp })(App);
+const AppContainer = connect(mapStateToProps, { initializeApp })(App);
 
+// On crée samurai JS app pour pouvoir tester
+const SamuraiJSApp = (props) => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  )
+}
+
+export default SamuraiJSApp
