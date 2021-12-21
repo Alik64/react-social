@@ -63,7 +63,7 @@ const AppContainer = connect(mapStateToProps, { initializeApp })(App);
 // On crée samurai JS app pour pouvoir tester
 const SamuraiJSApp = (props) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
