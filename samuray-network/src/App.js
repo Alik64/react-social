@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 //import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
@@ -63,11 +63,11 @@ const AppContainer = connect(mapStateToProps, { initializeApp })(App);
 // On crée samurai JS app pour pouvoir tester
 const SamuraiJSApp = (props) => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
