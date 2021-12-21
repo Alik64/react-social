@@ -11,7 +11,7 @@ export default function Users({ currentPage, totalUsersCount, pageSize, onPageCh
 
     <div>
 
-      <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount}
+      <Paginator currentPage={currentPage} totalItemsCount={totalUsersCount}
         pageSize={pageSize} onPageChanged={onPageChanged} />
 
 
