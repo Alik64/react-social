@@ -56,12 +56,6 @@ function ProfileContainer(props) {
 
   }, [userId, getUserProfile, getUserStatus])
 
-
-
-
-
-
-
   return (
     <div>
       <Profile
@@ -76,12 +70,6 @@ function ProfileContainer(props) {
     </div>
   )
 }
-
-
-
-
-
-
 
 
 let mapStateToProps = (state) => ({

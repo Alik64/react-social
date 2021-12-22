@@ -1,7 +1,7 @@
-import React, { Component, lazy, Suspense } from "react";
+import React, { Component } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-//import DialogsContainer from "./Components/Dialogs/DialogsContainer";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import LoginPage from "./Components/Login/Login";
@@ -14,7 +14,9 @@ import Preloader from "./Components/commun/Preloader/Preloader";
 import store from "./redux/redux-store";
 import Profile from "./Components/Profile/Profile";
 
-const DialogsContainer = lazy(() => import('./Components/Dialogs/DialogsContainer'));
+//const DialogsContainer = lazy(() => import('./Components/Dialogs/DialogsContainer'));
+
+
 
 class App extends Component {
 
@@ -40,11 +42,7 @@ class App extends Component {
               <Route path="/profile/:id" element={<Profile />} />
             </Route>
 
-            <Route path="/dialogs" element={
-              <Suspense fallback={<Preloader />}>
-                <DialogsContainer />
-              </Suspense>
-            } />
+            <Route path="/dialogs" element={<DialogsContainer />} />
 
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/login" element={<LoginPage />} />
