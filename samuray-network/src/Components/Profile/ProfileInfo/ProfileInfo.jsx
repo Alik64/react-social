@@ -18,7 +18,10 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
       savePhoto(e.target.files[0])
     }
   }
-
+  const onSubmit = (values, setSubmitting, setStatus) => {
+    console.log('hello mfrs')
+    setEditMode(false)
+  }
   return (
     <div>
       <div className={style.profile_header}>
@@ -36,7 +39,9 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
       </div>
 
 
-      {editMode ? <ProfileDataForm profile={profile} /> : <ProfileData profile={profile} />}
+      {editMode
+        ? <ProfileDataForm profile={profile} onSubmit={onSubmit} />
+        : <ProfileData profile={profile} isOwner={isOwner} toEditMode={() => { setEditMode(true) }} />}
 
 
     </div>
@@ -44,10 +49,10 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
 }
 
 
-const ProfileData = ({ profile }) => {
+const ProfileData = ({ profile, isOwner, toEditMode }) => {
   return (<div className={style.descriptionBlock}>
     {" "}
-
+    {isOwner && <div>  <button onClick={toEditMode}>Edit profile</button> </div>}
     <div>
       <h2>{profile.fullName}</h2>
     </div>

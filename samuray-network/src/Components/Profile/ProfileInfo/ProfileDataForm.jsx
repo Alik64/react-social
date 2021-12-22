@@ -4,43 +4,64 @@ import style from "./ProfileInfo.module.css";
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from '../../FormControl/FormikControl'
-import { Contact } from './ProfileInfo';
 
 
-const ProfileDataForm = ({ profile }) => {
-    return (<div className={style.descriptionBlock}>
-        {" "}
 
-        <div>
-            <h2>{profile.fullName}</h2>
-        </div>
+function ProfileDataForm(props) {
 
+    const initialValues = {
+        fullName: "",
+        lookingForAJob: true,
+        lookingForAJobDescription: "",
 
-        <div>
-            <b>Looking for a job</b> :{profile.lookingForAJob ? "Yes" : "No"}
-        </div>
-        {profile.lookingForAJob &&
-            <div>
-                <b>My professional skils</b>:{profile.lookingForAJobDescription}
-            </div>
-        }
+    }
+    const onSubmit = (values, { setSubmitting, setStatus }) => {
+        props.onSubmit(values, setSubmitting, setStatus)
 
-        <div>
-            <h3>Contacts</h3>
-            {Object.keys(profile.contacts).map((key, index) => {
+    }
+
+    const validationSchema = Yup.object({
+        email: Yup.string()
+        // password: Yup.string().required('Required')
+    })
+    return (
+
+        <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+            validateOnChange={false}
+            validateOnMount
+        >
+
+            {formik => {
+
+                // console.log(formik.status)
                 return (
-                    <ul key={index}>
-                        <li >
-                            <Contact contactTitle={key} contactValue={profile.contacts[key]} />
-                        </li>
-                    </ul>
+                    <Form className={style.form}>
+                        <button type="submit">Save</button>
+
+                        <FormikControl
+
+                            control='input'
+                            type='text'
+                            name='fullName'
+                            id='fullName'
+                            placeholder='Enter your name'
+                        />
+
+
+                        <div className="error">{formik.status}</div>
+                        {/* <button type="submit" disabled={!formik.isValid}>Sign in</button> */}
+
+
+                    </Form>
                 )
-            })}
+            }}
 
-        </div>
 
-    </div>)
-
+        </Formik>
+    )
 }
 
 export default ProfileDataForm
