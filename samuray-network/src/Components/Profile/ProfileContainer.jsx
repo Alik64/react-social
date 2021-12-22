@@ -13,16 +13,17 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 //   componentDidMount() {
 
-//     // let userId = this.props.match.params.userId;
-//     // if (!userId) {
-//     //   userId = 20866;
-//     // }
-
-//     let userId = 2
+//     let userId = this.props.match.params.userId;
+//     if (!userId) {
+//       userId = this.props.authorisedUserId;
+//       if (!userId) {
+//         this.props.history.push("/login")
+//       }
+//     }
 
 //     this.props.getUserProfile(userId)
 //     this.props.getUserStatus(userId)
-//   } 
+//   }
 
 //   render() {
 
@@ -39,22 +40,21 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 function ProfileContainer(props) {
 
   const { getUserProfile, getUserStatus, authorisedUserId } = props
-  let id = useParams().id
+  let userId = useParams().id
 
-  if (!id) {
-    id = authorisedUserId;
+  if (!userId) {
+    userId = authorisedUserId;
   }
-
+  // let userId = id
 
 
   useEffect(() => {
-    let userId = id
 
     getUserProfile(userId)
     getUserStatus(userId)
 
 
-  }, [id, getUserProfile, getUserStatus])
+  }, [userId, getUserProfile, getUserStatus])
 
 
 
@@ -64,7 +64,8 @@ function ProfileContainer(props) {
 
   return (
     <div>
-      <Profile props={props} isAuth={props.isAuth} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
+      <Profile props={props} isOwner={!useParams().id} isAuth={props.isAuth} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
+
     </div>
   )
 }

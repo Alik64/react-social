@@ -2,7 +2,6 @@ import React from "react";
 import Preloader from "../../commun/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
 import userPhoto from "../../../assets/images/user.jpg"
-// import ProfileStatus from "./ProfileStatus"
 import { usersAPI } from "../../../api/api";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
@@ -13,7 +12,7 @@ export default function ProfileInfo(props) {
     return <Preloader />;
   }
 
-  const putPhoto = (e) => {
+  const onAvaChanged = (e) => {
     let photo = e.target.files[0]
     let formData = new FormData()
     formData.append('image', photo)
@@ -35,7 +34,7 @@ export default function ProfileInfo(props) {
       <div className={style.descriptionBlock}>
         {" "}
 
-        <input type="file" id="photo" onChange={putPhoto} />
+        {props.isOwner && <input type="file" id="photo" onChange={onAvaChanged} />}
 
         <h2>{props.profile.fullName}</h2>
         <h2>{props.profile.aboutMe}</h2>

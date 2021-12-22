@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from "react";
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 //import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
@@ -12,6 +12,7 @@ import { initializeApp } from "../src/redux/appReducer"
 import { connect, Provider } from "react-redux";
 import Preloader from "./Components/commun/Preloader/Preloader";
 import store from "./redux/redux-store";
+import Profile from "./Components/Profile/Profile";
 
 const DialogsContainer = lazy(() => import('./Components/Dialogs/DialogsContainer'));
 
@@ -36,7 +37,7 @@ class App extends Component {
 
           <Routes>
             <Route path="profile" element={<ProfileContainer />} >
-              <Route path="/profile/:id" element={<ProfileContainer />} />
+              <Route path="/profile/:id" element={<Profile />} />
             </Route>
 
             <Route path="/dialogs" element={
