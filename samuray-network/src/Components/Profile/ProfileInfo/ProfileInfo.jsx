@@ -2,22 +2,28 @@ import React from "react";
 import Preloader from "../../commun/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
 import userPhoto from "../../../assets/images/user.jpg"
-import { usersAPI } from "../../../api/api";
+
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
-export default function ProfileInfo(props) {
+export default function ProfileInfo({ profile, status, updateUserStatus, isOwner, savePhoto }) {
 
-  if (!props.profile) {
+  if (!profile) {
     return <Preloader />;
   }
 
-  const onAvaChanged = (e) => {
-    let photo = e.target.files[0]
-    let formData = new FormData()
-    formData.append('image', photo)
-    usersAPI.putPhoto(formData)
+  // const onAvaChanged = (e) => {
+  //   let photo = e.target.files[0]
+  //   let formData = new FormData()
+  //   formData.append('image', photo)
+  //   usersAPI.putPhoto(formData)
 
+  // }
+
+  const onAvaSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0])
+    }
   }
 
   return (
@@ -29,24 +35,24 @@ export default function ProfileInfo(props) {
           alt="cosmos" />
 
         <img className={style.ava}
-          src={props.profile.photos.small || userPhoto} alt="avatar" />
+          src={profile.photos.large || userPhoto} alt="avatar" />
       </div>
       <div className={style.descriptionBlock}>
         {" "}
 
-        {props.isOwner && <input type="file" id="photo" onChange={onAvaChanged} />}
+        {isOwner && <input type="file" id="photo" onChange={onAvaSelected} />}
 
-        <h2>{props.profile.fullName}</h2>
-        <h2>{props.profile.aboutMe}</h2>
+        <h2>{profile.fullName}</h2>
+        <h2>{profile.aboutMe}</h2>
         <div className={style.status} >
-          <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus} />
+          <ProfileStatusWithHooks status={status} updateUserStatus={updateUserStatus} />
         </div>
         <h3>Contacts</h3>
         <ul>
-          <li>Facebook: {props.profile.contacts.facebook}</li>
-          <li>Twitter : {props.profile.contacts.twitter}</li>
+          <li>Facebook: {profile.contacts.facebook}</li>
+          <li>Twitter : {profile.contacts.twitter}</li>
           <li>
-            {props.profile.lookingForAJob ? "Looking for a job" : "On mission"}
+            {profile.lookingForAJob ? "Looking for a job" : "On mission"}
           </li>
         </ul>
       </div>

@@ -10,7 +10,9 @@ export default function Profile(props) {
   if (!props.isAuth) return <Navigate to={"/login"} />
   return (
     <div>
-      <ProfileInfo isOwner={props.isOwner} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
+      <ProfileInfo
+        savePhoto={props.savePhoto}
+        isOwner={props.isOwner} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
       <MyPostsContainer />
 
     </div>
