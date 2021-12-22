@@ -30,7 +30,7 @@ export default function ProfileInfo(props) {
           alt="cosmos" />
 
         <img className={style.ava}
-          src={props.profile.photos.small != null ? props.profile.photos.small : userPhoto} alt="avatar" />
+          src={props.profile.photos.small || userPhoto} alt="avatar" />
       </div>
       <div className={style.descriptionBlock}>
         {" "}
