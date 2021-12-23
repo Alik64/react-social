@@ -7,11 +7,12 @@ import FormikControl from '../../FormControl/FormikControl'
 
 
 
+
 function ProfileDataForm(props) {
 
     const initialValues = {
-        fullName: "",
-        lookingForAJob: true,
+        fullName: props.profile.fullName,
+        lookingForAJob: props.profile.lookingForAJob,
         lookingForAJobDescription: "",
 
     }
@@ -21,7 +22,8 @@ function ProfileDataForm(props) {
     }
 
     const validationSchema = Yup.object({
-        email: Yup.string()
+        fullName: Yup.string(),
+
         // password: Yup.string().required('Required')
     })
     return (
@@ -40,16 +42,35 @@ function ProfileDataForm(props) {
                 return (
                     <Form className={style.form}>
                         <button type="submit">Save</button>
+                        <div className={style.form_champ}>
+                            <b>Full name :</b>
 
-                        <FormikControl
+                            <FormikControl
+                                control='input'
+                                type='text'
+                                name='fullName'
+                                id='fullName'
+                                placeholder={props.profile.fullName}
+                            />
 
-                            control='input'
-                            type='text'
-                            name='fullName'
-                            id='fullName'
-                            placeholder='Enter your name'
-                        />
+                        </div>
 
+                        <div >
+                            <b>Looking for a job : </b>
+                            <Field type="checkbox" id="lookingForAJob" name="lookingForAJob" />
+                        </div>
+                        <div className={style.form_champ}>
+                            <b>Description :</b>
+
+                            <FormikControl
+                                control='input'
+                                type='text'
+                                name='lookingForAJobDescription'
+                                id='lookingForAJobDescription'
+
+                            />
+
+                        </div>
 
                         <div className="error">{formik.status}</div>
                         {/* <button type="submit" disabled={!formik.isValid}>Sign in</button> */}

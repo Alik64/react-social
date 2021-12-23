@@ -19,7 +19,7 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
     }
   }
   const onSubmit = (values, setSubmitting, setStatus) => {
-    console.log('hello mfrs')
+    console.log(values)
     setEditMode(false)
   }
   return (
