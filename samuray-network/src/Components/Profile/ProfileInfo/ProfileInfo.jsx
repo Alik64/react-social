@@ -6,7 +6,7 @@ import ProfileDataForm from "./ProfileDataForm";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
-export default function ProfileInfo({ profile, status, updateUserStatus, isOwner, savePhoto }) {
+export default function ProfileInfo({ profile, status, updateUserStatus, isOwner, savePhoto, saveProfile }) {
   const [editMode, setEditMode] = useState(false)
 
   if (!profile) {
@@ -18,8 +18,8 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
       savePhoto(e.target.files[0])
     }
   }
-  const onSubmit = (values, setSubmitting, setStatus) => {
-    console.log(values)
+  const onSubmit = (formData, setSubmitting, setStatus) => {
+    saveProfile(formData, setStatus)
     setEditMode(false)
   }
   return (
