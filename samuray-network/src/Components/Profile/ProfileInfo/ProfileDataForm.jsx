@@ -10,14 +10,8 @@ import FormikControl from '../../FormControl/FormikControl'
 
 function ProfileDataForm(props) {
 
-    const initialValues = {
-        fullName: props.profile.fullName,
-        lookingForAJob: props.profile.lookingForAJob,
-        lookingForAJobDescription: "",
-        aboutMe: "",
+    const initialValues = props.profile
 
-
-    }
     const onSubmit = (formData, { setSubmitting, setStatus }) => {
         props.onSubmit(formData, setSubmitting, setStatus)
 
