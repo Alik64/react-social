@@ -19,11 +19,13 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
       savePhoto(e.target.files[0])
     }
   }
-  const onSubmit = async (formData, setSubmitting, setStatus) => {
+  const onSubmit = (formData, setSubmitting, setStatus) => {
 
-    await saveProfile(formData, setStatus)
-    setEditMode(false)
-
+    saveProfile(formData, setStatus).then(
+      () => {
+        setEditMode(false)
+      }
+    )
 
     setSubmitting(false)
 
