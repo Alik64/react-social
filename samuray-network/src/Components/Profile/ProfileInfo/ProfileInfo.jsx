@@ -19,12 +19,15 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
       savePhoto(e.target.files[0])
     }
   }
-  const onSubmit = (formData, setSubmitting, setStatus) => {
-    console.log(formData)
-    saveProfile(formData, setStatus)
+  const onSubmit = async (formData, setSubmitting, setStatus) => {
+
+    await saveProfile(formData, setStatus)
+    setEditMode(false)
+
+
     setSubmitting(false)
 
-    // setEditMode(false)
+
   }
   return (
     <div>
@@ -44,7 +47,7 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
 
 
       {editMode
-        ? <ProfileDataForm profile={profile} onSubmit={onSubmit} />
+        ? <ProfileDataForm profile={profile} onSubmit={onSubmit} setEditMode={setEditMode} />
         : <ProfileData profile={profile} isOwner={isOwner} toEditMode={() => { setEditMode(true) }} />}
 
 

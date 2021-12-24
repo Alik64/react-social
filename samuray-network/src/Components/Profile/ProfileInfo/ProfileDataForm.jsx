@@ -10,7 +10,23 @@ import FormikControl from '../../FormControl/FormikControl'
 
 function ProfileDataForm({ profile, onSubmit }) {
 
-    const initialValues = profile
+    const initialValues = {
+        aboutMe: !profile.aboutMe ? '' : profile.aboutMe,
+        contacts: {
+            facebook: !profile.contacts.facebook ? '' : profile.contacts.facebook,
+            github: !profile.contacts.github ? '' : profile.contacts.github,
+            instagram: !profile.contacts.instagram ? '' : profile.contacts.instagram,
+            mainLink: !profile.contacts.mainLink ? '' : profile.contacts.mainLink,
+            twitter: !profile.contacts.twitter ? '' : profile.contacts.twitter,
+            vk: !profile.contacts.vk ? '' : profile.contacts.vk,
+            website: !profile.contacts.website ? '' : profile.contacts.website,
+            youtube: !profile.contacts.youtube ? '' : profile.contacts.youtube,
+        },
+
+        fullName: !profile.fullName ? '' : profile.fullName,
+        lookingForAJob: !profile.lookingForAJob ? '' : profile.lookingForAJob,
+        lookingForAJobDescription: !profile.lookingForAJobDescription ? '' : profile.lookingForAJobDescription
+    }
 
 
 
@@ -23,19 +39,35 @@ function ProfileDataForm({ profile, onSubmit }) {
     }
 
     const validationSchema = Yup.object({
-        fullName: Yup.string().nullable(),
-        lookingForAJobDescription: Yup.string().nullable(),
-        aboutMe: Yup.string().nullable(),
+        aboutMe: Yup.string(),
         contacts: Yup.object().shape({
-            facebook: Yup.string().nullable(),
-            github: Yup.string().nullable(),
-            instagram: Yup.string().nullable(),
-            mainLink: Yup.string().nullable(),
-            twitter: Yup.string().nullable(),
-            vk: Yup.string().nullable(),
-            website: Yup.string().nullable(),
-            youtube: Yup.string().nullable(),
-        })
+            facebook: Yup.string(),
+            github: Yup.string(),
+            instagram: Yup.string(),
+            mainLink: Yup.string(),
+            twitter: Yup.string(),
+            vk: Yup.string(),
+            website: Yup.string(),
+            youtube: Yup.string(),
+        }),
+
+        fullName: Yup.string(),
+        lookingForAJob: Yup.string(),
+        lookingForAJobDescription: Yup.string()
+
+        // fullName: Yup.string().nullable(),
+        // lookingForAJobDescription: Yup.string().nullable(),
+        // aboutMe: Yup.string().nullable(),
+        // contacts: Yup.object().shape({
+        //     facebook: Yup.string().nullable(),
+        //     github: Yup.string().nullable(),
+        //     instagram: Yup.string().nullable(),
+        //     mainLink: Yup.string().nullable(),
+        //     twitter: Yup.string().nullable(),
+        //     vk: Yup.string().nullable(),
+        //     website: Yup.string().nullable(),
+        //     youtube: Yup.string().nullable(),
+        // })
 
         // password: Yup.string().required('Required')
     })
@@ -54,6 +86,8 @@ function ProfileDataForm({ profile, onSubmit }) {
 
                 return (
                     <Form className={style.descriptionBlock}>
+
+
                         <button type="submit">Save</button>
 
                         <div className="error">error : {formik.status}</div>
