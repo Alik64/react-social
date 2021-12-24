@@ -118,6 +118,7 @@ export const saveProfile = (profile, setStatus) => async (dispatch, getState) =>
   if (response.data.resultCode === 0) {
     dispatch(getUserProfile(userId))
   } else {
+    console.log(response.data.messages[0])
     setStatus(response.data.messages[0])
   }
 }

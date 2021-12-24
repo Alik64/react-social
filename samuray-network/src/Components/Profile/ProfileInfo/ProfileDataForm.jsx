@@ -8,37 +8,56 @@ import FormikControl from '../../FormControl/FormikControl'
 
 
 
-function ProfileDataForm(props) {
+function ProfileDataForm({ profile, onSubmit }) {
 
-    const initialValues = props.profile
+    const initialValues = profile
 
-    const onSubmit = (formData, { setSubmitting, setStatus }) => {
-        props.onSubmit(formData, setSubmitting, setStatus)
+
+
+
+    console.log(profile)
+
+    const onSendProfileUpdate = (formData, { setSubmitting, setStatus }) => {
+        onSubmit(formData, setSubmitting, setStatus)
 
     }
 
     const validationSchema = Yup.object({
-        fullName: Yup.string(),
-        lookingForAJobDescription: Yup.string(),
-        aboutMe: Yup.string()
+        fullName: Yup.string().nullable(),
+        lookingForAJobDescription: Yup.string().nullable(),
+        aboutMe: Yup.string().nullable(),
+        contacts: Yup.object().shape({
+            facebook: Yup.string().nullable(),
+            github: Yup.string().nullable(),
+            instagram: Yup.string().nullable(),
+            mainLink: Yup.string().nullable(),
+            twitter: Yup.string().nullable(),
+            vk: Yup.string().nullable(),
+            website: Yup.string().nullable(),
+            youtube: Yup.string().nullable(),
+        })
+
         // password: Yup.string().required('Required')
     })
     return (
 
         <Formik
             initialValues={initialValues}
-            onSubmit={onSubmit}
+            onSubmit={onSendProfileUpdate}
             validationSchema={validationSchema}
             validateOnChange={false}
             validateOnMount
         >
 
             {formik => {
+                console.log("formik", formik)
 
-                // console.log(formik.status)
                 return (
                     <Form className={style.descriptionBlock}>
                         <button type="submit">Save</button>
+
+                        <div className="error">error : {formik.status}</div>
+
                         <div className={style.form_champ}>
                             <b>Full name :</b>
 
@@ -47,7 +66,7 @@ function ProfileDataForm(props) {
                                 type='text'
                                 name='fullName'
                                 id='fullName'
-                                placeholder={props.profile.fullName}
+                                placeholder={profile.fullName}
                             />
 
                         </div>
@@ -81,8 +100,28 @@ function ProfileDataForm(props) {
                             />
 
                         </div>
+                        <div >
+                            <h3>Contacts</h3>
+                            {Object.keys(profile.contacts).map((key, index) => {
+                                return (
 
-                        <div className="error">{formik.status}</div>
+                                    <ul key={index}>
+                                        <li >
+                                            {/* <Contact contactTitle={key} contactValue={profile.contacts[key]} /> */}
+                                            <b>{key}</b>  <Field
+                                                type='text'
+                                                name={`contacts.${key}`}
+                                                id={key}
+
+                                            />
+                                        </li>
+                                    </ul>
+
+                                )
+                            })}
+
+                        </div>
+
                         {/* <button type="submit" disabled={!formik.isValid}>Sign in</button> */}
 
 

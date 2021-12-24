@@ -9,6 +9,7 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 export default function ProfileInfo({ profile, status, updateUserStatus, isOwner, savePhoto, saveProfile }) {
   const [editMode, setEditMode] = useState(false)
 
+
   if (!profile) {
     return <Preloader />;
   }
@@ -19,8 +20,11 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
     }
   }
   const onSubmit = (formData, setSubmitting, setStatus) => {
+    console.log(formData)
     saveProfile(formData, setStatus)
-    setEditMode(false)
+    setSubmitting(false)
+
+    // setEditMode(false)
   }
   return (
     <div>
@@ -50,6 +54,7 @@ export default function ProfileInfo({ profile, status, updateUserStatus, isOwner
 
 
 const ProfileData = ({ profile, isOwner, toEditMode }) => {
+
   return (<div className={style.descriptionBlock}>
     {" "}
     {isOwner && <div>  <button onClick={toEditMode}>Edit profile</button> </div>}
@@ -69,6 +74,7 @@ const ProfileData = ({ profile, isOwner, toEditMode }) => {
 
     <div>
       <h3>Contacts</h3>
+
       {Object.keys(profile.contacts).map((key, index) => {
         return (
           <ul key={index}>
@@ -80,7 +86,6 @@ const ProfileData = ({ profile, isOwner, toEditMode }) => {
       })}
 
     </div>
-
   </div>)
 
 }

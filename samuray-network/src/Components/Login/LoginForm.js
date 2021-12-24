@@ -32,7 +32,7 @@ function LoginForm(props) {
 
             {formik => {
 
-                console.log(formik.status)
+
                 return (
                     <Form className={style.form}>
                         <h1>Login</h1>
