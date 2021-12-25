@@ -9,7 +9,7 @@ let initialState = {
   email: null,
   login: null,
   isAuth: false,
-  captchaUrl: null,
+  captchaUrl: null, // if null, then captcha is not required
 };
 
 const authReducer = (state = initialState, action) => {
@@ -54,7 +54,11 @@ export const login = (email, password, rememberMe, setStatus) => async (dispatch
     //success, get auth data
     dispatch(getAuthUserData())
   } else {
-    setStatus(response.data.messages[0])
+    if (response.data.resultCode === 0) {
+      dispatch(getCaptchaUrl())
+    }
+    let message = response.data.messages[0].length > 0 ? response.data.messages[0] : 'some error'
+    setStatus(message)
   }
 
 }
