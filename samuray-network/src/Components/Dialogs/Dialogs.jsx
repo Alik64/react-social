@@ -9,7 +9,7 @@ import AddMessageForm from "./AddMessageForm";
 
 export default function Dialogs(props) {
   let state = props.dialogsPage;
-
+  if (!props.isAuth) return <Navigate to={"/login"} />
   let dialogsElements = state.dialogs.map((dialog) => (
     <DialogItem
       name={dialog.name}
