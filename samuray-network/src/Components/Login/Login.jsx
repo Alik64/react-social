@@ -11,7 +11,7 @@ const Login = (props) => {
         console.log('Form data', formData)
         console.log('SetStatus', setStatus)
 
-        props.login(formData.email, formData.password, formData.rememberMe, setStatus)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha, setStatus)
 
         setSubmitting(false)
     }
@@ -21,13 +21,13 @@ const Login = (props) => {
     }
     return (
         <div className={style.formik}>
-            <LoginForm onSubmit={onSubmit} />
+            <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
         </div>
     )
 }
 
 let mapStateToProps = (state) => ({
-
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
 });
 export default

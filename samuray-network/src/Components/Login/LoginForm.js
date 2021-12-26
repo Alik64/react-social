@@ -10,7 +10,8 @@ function LoginForm(props) {
     const initialValues = {
         email: "",
         password: "",
-        rememberMe: false
+        rememberMe: false,
+        captcha: ""
     }
     const onSubmit = (values, { setSubmitting, setStatus }) => {
         props.onSubmit(values, setSubmitting, setStatus)
@@ -19,7 +20,8 @@ function LoginForm(props) {
 
     const validationSchema = Yup.object({
         email: Yup.string().required('Required').email('Invalid email format'),
-        password: Yup.string().required('Required')
+        password: Yup.string().required('Required'),
+        captcha: Yup.string()
     })
     return (
         <Formik
@@ -27,11 +29,12 @@ function LoginForm(props) {
             onSubmit={onSubmit}
             validationSchema={validationSchema}
             validateOnChange={false}
-            validateOnMount
+        // validateOnMount
         >
 
             {formik => {
-
+                console.log(props.captchaUrl)
+                console.log(formik.errors)
 
                 return (
                     <Form className={style.form}>
@@ -53,6 +56,16 @@ function LoginForm(props) {
                         <div >
                             <Field type="checkbox" id="rememberMe" name="rememberMe" /> <span>Remember me</span>
                         </div>
+                        {/* if captcha = true, show image */}
+                        <div>{props.captchaUrl && <img src={props.captchaUrl} alt='captcha' />}</div>
+                        {/* then show input to send captcha to server */}
+                        <div>{props.captchaUrl && <FormikControl
+                            control='input'
+                            type='text'
+                            name='captcha'
+                            id='captcha'
+                            placeholder='Put the text you see'
+                        />}</div>
                         <div className="error">{formik.status}</div>
                         <button type="submit" disabled={!formik.isValid}>Sign in</button>
 
