@@ -20,8 +20,13 @@ import Profile from "./Components/Profile/Profile";
 
 class App extends Component {
 
+  // catchAllUnhandledErrors = (reason,promiseRejectionEvent) => {
+  //   alert("problem")
+  // }
   componentDidMount() {
+
     this.props.initializeApp()
+    // window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors)
   }
 
   render() {
