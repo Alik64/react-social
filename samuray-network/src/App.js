@@ -44,8 +44,11 @@ class App extends Component {
 
           <Routes>
             <Route path="/" element={<ProfileContainer />} />
-            <Route path="profile" element={<ProfileContainer />} />
-            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="profile" element={<ProfileContainer />}>
+              <Route path="/profile/:id" element={<Profile />} />
+
+            </Route>
+
             <Route path="*" element={<div>404 Not Found</div>} />
 
 
