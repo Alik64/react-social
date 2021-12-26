@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
@@ -38,9 +38,12 @@ class App extends Component {
 
 
           <Routes>
-            <Route path="profile" element={<ProfileContainer />} >
-              <Route path="/profile/:id" element={<Profile />} />
-            </Route>
+            <Route path="/" element={<ProfileContainer />} />
+            <Route path="profile" element={<ProfileContainer />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="*" element={<div>404 Not Found</div>} />
+
+
 
             <Route path="/dialogs" element={<DialogsContainer />} />
 
@@ -62,11 +65,11 @@ const AppContainer = connect(mapStateToProps, { initializeApp })(App);
 // On crée samurai JS app pour pouvoir tester
 const SamuraiJSApp = (props) => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

@@ -7,36 +7,6 @@ import { compose } from "redux";
 import { useParams } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
-
-
-// class ProfileContainer extends React.Component {
-
-//   componentDidMount() {
-
-//     let userId = this.props.match.params.userId;
-//     if (!userId) {
-//       userId = this.props.authorisedUserId;
-//       if (!userId) {
-//         this.props.history.push("/login")
-//       }
-//     }
-
-//     this.props.getUserProfile(userId)
-//     this.props.getUserStatus(userId)
-//   }
-
-//   render() {
-
-//     return (
-//       <div>
-//         <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateUserStatus={this.props.updateUserStatus} />
-//       </div>
-//     );
-//   }
-// }
-
-
-
 function ProfileContainer(props) {
 
   const { getUserProfile, getUserStatus, authorisedUserId } = props
@@ -92,3 +62,33 @@ export default compose(
   // withRouter
   withAuthRedirect
 )(ProfileContainer)
+
+
+
+// class ProfileContainer extends React.Component {
+
+//   componentDidMount() {
+
+//     let userId = this.props.match.params.userId;
+//     if (!userId) {
+//       userId = this.props.authorisedUserId;
+//       if (!userId) {
+//         this.props.history.push("/login")
+//       }
+//     }
+
+//     this.props.getUserProfile(userId)
+//     this.props.getUserStatus(userId)
+//   }
+
+//   render() {
+
+//     return (
+//       <div>
+//         <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateUserStatus={this.props.updateUserStatus} />
+//       </div>
+//     );
+//   }
+// }
+
+
