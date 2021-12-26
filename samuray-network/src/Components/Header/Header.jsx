@@ -12,7 +12,7 @@ export default function Header(props) {
         <img src={samuraiLogo} alt="react" className={style.logo_samurai} />
 
       </div>
-      <h3>React Samourai  <span className={style.samourai}> 侍 </span> </h3>
+      <h3>React Samurai  <span className={style.samourai}> 侍 </span> </h3>
       <div className={style.loginBlock}>
         {props.isAuth
           ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
